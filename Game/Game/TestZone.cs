@@ -10,8 +10,11 @@ namespace Environment
     class TestZone : Zone
     {
 
-        public CollisionMap level1;
-        public CollisionMap level2;
+        private CollisionMap level1;
+        private CollisionMap level2;
+
+        private TransitionMap level1Trans;
+        private TransitionMap level2Trans;
 
         public TestZone(int tileWidth, int tileHeight)
         {
@@ -26,8 +29,15 @@ namespace Environment
             level2 = new CollisionMap(tileHeight * 30, tileWidth * 30);
             collisionMap.Add(level1);
             collisionMap.Add(level2);
+            transitionMap = new List<TransitionMap>();
+            level1Trans = new TransitionMap(tileHeight * 30, tileWidth * 30);
+            level2Trans = new TransitionMap(tileHeight * 30, tileWidth * 30);
+            transitionMap.Add(level1Trans);
+            transitionMap.Add(level2Trans);
             fillLevel1();
             fillLevel2();
+            fillLevel1Trans();
+            fillLevel2Trans();
         }
 
         private void fillLevel1()
@@ -51,6 +61,17 @@ namespace Environment
             level2.fillFalseRectangle(660, 950, 490, 10);
             level2.fillFalseRectangle(30, 530, 400, 10);
             level2.fillFalseRectangle(420, 540, 10, 960);
+        }
+
+        private void fillLevel1Trans()
+        {
+            level1Trans.fillRectangle(3, 30, 1440, 30, 30);
+            level1Trans.fillRectangle(1, 1019, 959, 1, 330);
+        }
+
+        private void fillLevel2Trans()
+        {
+            level2Trans.fillRectangle(2, 1139, 959, 1, 330);
         }
     }
 }

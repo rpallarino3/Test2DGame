@@ -13,8 +13,11 @@ namespace Game
     class MovementHandler
     {
 
+        private TransitionHandler transitionHandler;
+
         public MovementHandler()
         {
+            transitionHandler = new TransitionHandler();
         }
 
 
@@ -44,12 +47,13 @@ namespace Game
             if (checkUpCollision(player, currentZone))
             {
                 player.moveGlobalUp();
+                transitionHandler.checkTransitions(player, currentZone);
             }
         }
 
         private bool checkUpCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X - 15, player.getGlobalLocation().Y - 16);
+            Point startingCollision = new Point(player.getGlobalLocation().X - 15, player.getGlobalLocation().Y - 15 - player.getMoveSpeed());
             Console.WriteLine("Starting collision: " + startingCollision);
             for (int i = 0; i < 30; i++)
             {
@@ -66,12 +70,13 @@ namespace Game
             if (checkLeftCollision(player, currentZone))
             {
                 player.moveGlobalLeft();
+                transitionHandler.checkTransitions(player, currentZone);
             }
         }
 
         private bool checkLeftCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X - 16, player.getGlobalLocation().Y - 15);
+            Point startingCollision = new Point(player.getGlobalLocation().X - 15 - player.getMoveSpeed(), player.getGlobalLocation().Y - 15);
             Console.WriteLine("Starting collision: " + startingCollision);
             for (int i = 0; i < 30; i++)
             {
@@ -88,12 +93,13 @@ namespace Game
             if (checkDownCollision(player, currentZone))
             {
                 player.moveGlobalDown();
+                transitionHandler.checkTransitions(player, currentZone);
             }
         }
 
         private bool checkDownCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X - 15, player.getGlobalLocation().Y + 15);
+            Point startingCollision = new Point(player.getGlobalLocation().X - 15, player.getGlobalLocation().Y + 14 + player.getMoveSpeed());
             Console.WriteLine("Starting collision: " + startingCollision);
             for (int i = 0; i < 30; i++)
             {
@@ -110,12 +116,13 @@ namespace Game
             if (checkRightCollision(player, currentZone))
             {
                 player.moveGlobalRight();
+                transitionHandler.checkTransitions(player, currentZone);
             }
         }
 
         private bool checkRightCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X + 15, player.getGlobalLocation().Y - 15);
+            Point startingCollision = new Point(player.getGlobalLocation().X + 14 + player.getMoveSpeed(), player.getGlobalLocation().Y - 15);
             Console.WriteLine("Starting collision: " + startingCollision);
             for (int i = 0; i < 30; i++)
             {

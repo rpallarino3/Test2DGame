@@ -26,6 +26,7 @@ namespace Game
         private Stopwatch stopwatch;
         private Zone currentZone;
         private Player player;
+        private ZoneFactory zoneFactory;
         private MenuFactory menuFactory;
         private GameState gameState;
         private int count = 0;
@@ -51,7 +52,8 @@ namespace Game
             SetStyle(ControlStyles.DoubleBuffer, true);
             player = new Player();
             player.setGlobalLocation(100, 1000);
-            currentZone = new TestZone(50, 50);
+            zoneFactory = new ZoneFactory();
+            zoneFactory.setCurrentZone(new TestZone(50, 50));
             stopwatch = new Stopwatch();
             stopwatch.Start();
             gameState = new GameState();
@@ -88,16 +90,6 @@ namespace Game
         private void Screen_KeyUp(object sender, KeyEventArgs e)
         {
             keyHandler.keyUp(e);
-        }
-
-        public Zone getCurrentZone()
-        {
-            return currentZone;
-        }
-
-        public void setCurrentZone(Zone zone)
-        {
-            currentZone = zone;
         }
 
         private void gameLoop() // this whole thing needs to be redone

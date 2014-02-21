@@ -51,8 +51,12 @@
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="StartMenu.cs" />
+    <Compile Include="TestCave.cs" />
     <Compile Include="TestZone.cs" />
+    <Compile Include="TransitionHandler.cs" />
+    <Compile Include="TransitionMap.cs" />
     <Compile Include="Zone.cs" />
+    <Compile Include="ZoneFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -14,17 +14,12 @@ namespace Environment
         protected int tileWidth;
         protected int zoneNumber;
         protected List<Image> levels;
-        protected Image image;
         protected List<CollisionMap> collisionMap;
+        protected List<TransitionMap> transitionMap;
 
         public List<Image> getLevels()
         {
             return levels;
-        }
-
-        public Image getImage()
-        {
-            return image;
         }
 
         public int getWidth()
@@ -40,6 +35,16 @@ namespace Environment
         public List<CollisionMap> getCollisionMap()
         {
             return collisionMap;
+        }
+
+        public List<TransitionMap> getTransitionMap()
+        {
+            return transitionMap;
+        }
+
+        public int getZoneNumber()
+        {
+            return zoneNumber;
         }
 
     }

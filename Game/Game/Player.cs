@@ -19,6 +19,7 @@ namespace PlayerStuff
         private int currentZoneLevel;
         private int xOffset;
         private int yOffset;
+        private int moveSpeed;
 
         public Player()
         {
@@ -26,6 +27,7 @@ namespace PlayerStuff
             currentImage = playerUp;
             xOffset = currentImage.Width / 2;
             yOffset = currentImage.Height / 2;
+            moveSpeed = 1;
             currentZoneLevel = 0;
         }
 
@@ -71,22 +73,22 @@ namespace PlayerStuff
 
         public void moveGlobalUp()
         {
-            moveGlobalLocation(0, -1);
+            moveGlobalLocation(0, -moveSpeed);
         }
 
         public void moveGlobalDown()
         {
-            moveGlobalLocation(0, 1);
+            moveGlobalLocation(0, moveSpeed);
         }
 
         public void moveGlobalLeft()
         {
-            moveGlobalLocation(-1, 0);
+            moveGlobalLocation(-moveSpeed, 0);
         }
 
         public void moveGlobalRight()
         {
-            moveGlobalLocation(1, 0);
+            moveGlobalLocation(moveSpeed, 0);
         }
 
         public Point getGlobalLocation()
@@ -111,9 +113,29 @@ namespace PlayerStuff
             return currentZoneLevel;
         }
 
+        public void upOneLevel()
+        {
+            currentZoneLevel++;
+        }
+
+        public void downOneLevel()
+        {
+            currentZoneLevel--;
+        }
+
         public void setCurrentZoneLevel(int newLevel)
         {
             currentZoneLevel = newLevel;
+        }
+
+        public void setMoveSpeed(int newMoveSpeed)
+        {
+            moveSpeed = newMoveSpeed;
+        }
+
+        public int getMoveSpeed()
+        {
+            return moveSpeed;
         }
     }
 
