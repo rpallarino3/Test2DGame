@@ -21,117 +21,141 @@ namespace Game
         }
 
 
-        public void movePlayer(Player player, Zone currentZone, List<Keys> keysDown)
+        public void movePlayer(Player player, ZoneFactory zoneFactory, List<Keys> keysDown)
         {
             if (keysDown.Contains(Keys.W))
             {
-                movePlayerUp(player, currentZone);
+                movePlayerUp(player, zoneFactory);
             }
             if (keysDown.Contains(Keys.A))
             {
-                movePlayerLeft(player, currentZone);
+                movePlayerLeft(player, zoneFactory);
             }
             if (keysDown.Contains(Keys.S))
             {
-                movePlayerDown(player, currentZone);
+                movePlayerDown(player, zoneFactory);
             }
             if (keysDown.Contains(Keys.D))
             {
-                movePlayerRight(player, currentZone);
+                movePlayerRight(player, zoneFactory);
             }
             setCorrectPlayerImage(player, keysDown);
         }
 
-        private void movePlayerUp(Player player, Zone currentZone)
+        private void movePlayerUp(Player player, ZoneFactory zoneFactory)
         {
-            if (checkUpCollision(player, currentZone))
-            {
-                player.moveGlobalUp();
-                transitionHandler.checkTransitions(player, currentZone);
-            }
+            player.moveGlobalUp(checkUpCollision(player, zoneFactory.getCurrentZone()));
+            transitionHandler.checkTransitions(player, zoneFactory);
         }
 
-        private bool checkUpCollision(Player player, Zone currentZone)
+        private int checkUpCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X - 15, player.getGlobalLocation().Y - 15 - player.getMoveSpeed());
-            Console.WriteLine("Starting collision: " + startingCollision);
-            for (int i = 0; i < 30; i++)
+            int i = 0;
+            Point startingCollision = new Point(player.getGlobalLocation().X, player.getGlobalLocation().Y - player.getMoveSpeed());
+            for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y, startingCollision.X + i] == false)
+                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y, startingCollision.X + j] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[startingCollision.Y, startingCollision.X + j] == true)
                 {
-                    return false;
+                    if (i < player.getMoveSpeed())
+                    {
+                        startingCollision.Y++;
+                        i++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
-            return true;
+            return player.getMoveSpeed() - i;
         }
 
-        private void movePlayerLeft(Player player, Zone currentZone)
+        private void movePlayerLeft(Player player, ZoneFactory zoneFactory)
         {
-            if (checkLeftCollision(player, currentZone))
-            {
-                player.moveGlobalLeft();
-                transitionHandler.checkTransitions(player, currentZone);
-            }
+            player.moveGlobalLeft(checkLeftCollision(player, zoneFactory.getCurrentZone()));
+            transitionHandler.checkTransitions(player, zoneFactory);
         }
 
-        private bool checkLeftCollision(Player player, Zone currentZone)
+        private int checkLeftCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X - 15 - player.getMoveSpeed(), player.getGlobalLocation().Y - 15);
-            Console.WriteLine("Starting collision: " + startingCollision);
-            for (int i = 0; i < 30; i++)
+            int i = 0;
+            Point startingCollision = new Point(player.getGlobalLocation().X - player.getMoveSpeed(), player.getGlobalLocation().Y);
+            for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y + i, startingCollision.X] == false)
+                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y + j, startingCollision.X] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[startingCollision.Y + j, startingCollision.X] == true)
                 {
-                    return false;
+                    if (i < player.getMoveSpeed())
+                    {
+                        startingCollision.X++;
+                        i++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
-            return true;
+            return player.getMoveSpeed() - i;
         }
 
-        private void movePlayerDown(Player player, Zone currentZone)
+        private void movePlayerDown(Player player, ZoneFactory zoneFactory)
         {
-            if (checkDownCollision(player, currentZone))
-            {
-                player.moveGlobalDown();
-                transitionHandler.checkTransitions(player, currentZone);
-            }
+            player.moveGlobalDown(checkDownCollision(player, zoneFactory.getCurrentZone()));
+            transitionHandler.checkTransitions(player, zoneFactory);
         }
 
-        private bool checkDownCollision(Player player, Zone currentZone)
+        private int checkDownCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X - 15, player.getGlobalLocation().Y + 14 + player.getMoveSpeed());
-            Console.WriteLine("Starting collision: " + startingCollision);
-            for (int i = 0; i < 30; i++)
+            int i = 0;
+            Point startingCollision = new Point(player.getGlobalLocation().X, player.getGlobalLocation().Y + 29 + player.getMoveSpeed());
+            for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y, startingCollision.X + i] == false)
+                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y, startingCollision.X + j] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[startingCollision.Y, startingCollision.X + j] == true)
                 {
-                    return false;
+                    if (i < player.getMoveSpeed())
+                    {
+                        startingCollision.Y--;
+                        i++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
-            return true;
+            return player.getMoveSpeed() - i;
         }
 
-        private void movePlayerRight(Player player, Zone currentZone)
+        private void movePlayerRight(Player player, ZoneFactory zoneFactory)
         {
-            if (checkRightCollision(player, currentZone))
-            {
-                player.moveGlobalRight();
-                transitionHandler.checkTransitions(player, currentZone);
-            }
+            player.moveGlobalRight(checkRightCollision(player, zoneFactory.getCurrentZone()));
+            transitionHandler.checkTransitions(player, zoneFactory);
         }
 
-        private bool checkRightCollision(Player player, Zone currentZone)
+        private int checkRightCollision(Player player, Zone currentZone)
         {
-            Point startingCollision = new Point(player.getGlobalLocation().X + 14 + player.getMoveSpeed(), player.getGlobalLocation().Y - 15);
-            Console.WriteLine("Starting collision: " + startingCollision);
-            for (int i = 0; i < 30; i++)
+            int i = 0;
+            Point startingCollision = new Point(player.getGlobalLocation().X + 29 + player.getMoveSpeed(), player.getGlobalLocation().Y);
+            for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y + i, startingCollision.X] == false)
+                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[startingCollision.Y + j, startingCollision.X] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[startingCollision.Y + j, startingCollision.X] == true)
                 {
-                    return false;
+                    if (i < player.getMoveSpeed())
+                    {
+                        startingCollision.X--;
+                        i++;
+                        j = 0;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
-            return true;
+            return player.getMoveSpeed() - i;
         }
 
         private void setCorrectPlayerImage(Player player, List<Keys> keysDown)

@@ -16,13 +16,13 @@ namespace Environment
         {
         }
 
-        public void checkTransitions(Player player, Zone currentZone)
+        public void checkTransitions(Player player, ZoneFactory zoneFactory)
         {
-            Point startingPoint = new Point(player.getGlobalLocation().X - 15, player.getGlobalLocation().Y - 15);
-            int transNum = isTransition(startingPoint, player, currentZone);
+            Point startingPoint = new Point(player.getGlobalLocation().X, player.getGlobalLocation().Y);
+            int transNum = isTransition(startingPoint, player, zoneFactory.getCurrentZone());
             if (transNum != 0)
             {
-                transitionZones(player, currentZone, currentZone.getZoneNumber(), transNum);
+                transitionZones(player, zoneFactory, zoneFactory.getCurrentZone().getZoneNumber(), transNum);
             }
         }
 
@@ -42,15 +42,15 @@ namespace Environment
             return 0;
         }
 
-        private void transitionZones(Player player, Zone currentZone, int zoneNumber, int transitionNumber)
+        private void transitionZones(Player player, ZoneFactory zoneFactory, int zoneNumber, int transitionNumber)
         {
             switch (zoneNumber)
             {
                 case -1:
-                    testZoneTransition(player, currentZone, transitionNumber);
+                    testZoneTransition(player, zoneFactory, transitionNumber);
                     break;
                 case -2:
-                    testCaveTransition(player, currentZone, transitionNumber);
+                    testCaveTransition(player, zoneFactory, transitionNumber);
                     break;
                 default:
                     Console.WriteLine("default");
@@ -58,7 +58,7 @@ namespace Environment
             }
         }
 
-        private void testZoneTransition(Player player, Zone currentZone, int transitionNumber)
+        private void testZoneTransition(Player player, ZoneFactory zoneFactory, int transitionNumber)
         {
             Console.WriteLine(transitionNumber);
             switch (transitionNumber)
@@ -66,17 +66,32 @@ namespace Environment
                 case 1:
                     player.upOneLevel();
                     break;
+                case 2:
+                    player.downOneLevel();
+                    break;
                 case 3:
-                    // need to put all zones into some data structure that is indexed by zone number
+                    Zone currentZone = zoneFactory.getCurrentZone();
+                    zoneFactory.setCurrentZone(currentZone.getTransitionZones()[0]);
+                    player.setGlobalLocation(currentZone.getTransitionPoints()[0].X, currentZone.getTransitionPoints()[0].Y);
                     break;
                 default:
                     break;
             }
         }
 
-        private void testCaveTransition(Player player, Zone currentZone, int transitionNumber)
+        private void testCaveTransition(Player player, ZoneFactory zoneFactory, int transitionNumber)
         {
             Console.WriteLine(transitionNumber);
+            switch (transitionNumber)
+            {
+                case 1:
+                    Zone currentZone = zoneFactory.getCurrentZone();
+                    zoneFactory.setCurrentZone(currentZone.getTransitionZones()[0]);
+                    player.setGlobalLocation(currentZone.getTransitionPoints()[0].X, currentZone.getTransitionPoints()[0].Y);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

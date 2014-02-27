@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using NPCandEnemies;
 
 namespace Environment
 {
@@ -16,20 +17,23 @@ namespace Environment
         private TransitionMap level1Trans;
         private TransitionMap level2Trans;
 
+        private TrafficMap level1TrafficMap;
+        private TrafficMap level2TrafficMap;
+
         public TestZone(int tileWidth, int tileHeight)
         {
             zoneNumber = -1;
             this.tileWidth = tileWidth;
             this.tileHeight = tileHeight;
-            levels = new List<Image>();
+            createLists();
             levels.Add(Image.FromFile("../../../Images/Zones/TestGrassZoneFloor1.png"));
             levels.Add(Image.FromFile("../../../Images/Zones/TestGrassZoneFloor2.png"));
-            collisionMap = new List<CollisionMap>();
+            
             level1 = new CollisionMap(tileHeight * 30, tileWidth * 30);
             level2 = new CollisionMap(tileHeight * 30, tileWidth * 30);
             collisionMap.Add(level1);
             collisionMap.Add(level2);
-            transitionMap = new List<TransitionMap>();
+            
             level1Trans = new TransitionMap(tileHeight * 30, tileWidth * 30);
             level2Trans = new TransitionMap(tileHeight * 30, tileWidth * 30);
             transitionMap.Add(level1Trans);
@@ -38,6 +42,24 @@ namespace Environment
             fillLevel2();
             fillLevel1Trans();
             fillLevel2Trans();
+
+            level1TrafficMap = new TrafficMap(tileHeight * 30, tileWidth * 30);
+            level2TrafficMap = new TrafficMap(tileHeight * 30, tileWidth * 30);
+            trafficMap.Add(level1TrafficMap);
+            trafficMap.Add(level2TrafficMap);
+            fillLevel1TrafficMap();
+            
+        }
+
+        private void createLists()
+        {
+            levels = new List<Image>();
+            collisionMap = new List<CollisionMap>();
+            transitionMap = new List<TransitionMap>();
+            transitionZones = new List<Zone>();
+            transitionPoints = new List<Point>();
+            trafficMap = new List<TrafficMap>();
+            npcList = new List<NPC>();
         }
 
         private void fillLevel1()
@@ -66,12 +88,28 @@ namespace Environment
         private void fillLevel1Trans()
         {
             level1Trans.fillRectangle(3, 30, 1440, 30, 30);
-            level1Trans.fillRectangle(1, 1019, 959, 1, 330);
+            level1Trans.fillRectangle(1, 1069, 959, 1, 330);
         }
 
         private void fillLevel2Trans()
         {
             level2Trans.fillRectangle(2, 1139, 959, 1, 330);
+        }
+
+        private void fillLevel1TrafficMap()
+        {
+            NPC testNPC = new NPC(this, new Point(300, 1200), 0); // need to move creation of NPCS somewhere else
+            NPC testNPC2 = new NPC(this, new Point(350, 1200), 0);
+            NPC testNPC3 = new NPC(this, new Point(750, 750), 0);
+            testNPC.setStationaryImage(Image.FromFile("../../../Images/NPCs/TestZones/TestZone/TestNPC/StationaryImage.png"));
+            testNPC2.setStationaryImage(Image.FromFile("../../../Images/NPCs/TestZones/TestZone/TestNPC/LargeStationaryImage.png"));
+            testNPC3.setStationaryImage(Image.FromFile("../../../Images/NPCs/TestZones/TestZone/TestNPC/LargeTallStationaryImage.png"));
+            level1TrafficMap.insertNPC(testNPC, 1200, 300, 30, 30); //use npc height and width etc.
+            level1TrafficMap.insertNPC(testNPC2, 1200, 350, 30, 30);
+            level1TrafficMap.insertNPC(testNPC3, 750, 750, 30, 60);
+            npcList.Add(testNPC);
+            npcList.Add(testNPC2);
+            npcList.Add(testNPC3);
         }
     }
 }

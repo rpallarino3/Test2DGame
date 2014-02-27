@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using NPCandEnemies;
 
 namespace Environment
 {
@@ -16,6 +17,10 @@ namespace Environment
         protected List<Image> levels;
         protected List<CollisionMap> collisionMap;
         protected List<TransitionMap> transitionMap;
+        protected List<Zone> transitionZones; // maybe combine these 2
+        protected List<Point> transitionPoints;
+        protected List<TrafficMap> trafficMap;
+        protected List<NPC> npcList;
 
         public List<Image> getLevels()
         {
@@ -45,6 +50,36 @@ namespace Environment
         public int getZoneNumber()
         {
             return zoneNumber;
+        }
+
+        public List<Zone> getTransitionZones()
+        {
+            return transitionZones;
+        }
+
+        public List<Point> getTransitionPoints()
+        {
+            return transitionPoints;
+        }
+
+        public List<TrafficMap> getTrafficMap()
+        {
+            return trafficMap;
+        }
+
+        public List<NPC> getNPCs()
+        {
+            return npcList;
+        }
+
+        public void addNPCtoList(NPC npc)
+        {
+            npcList.Add(npc);
+        }
+
+        public void removeNPCfromList(NPC npc)
+        {
+            npcList.Remove(npc);
         }
 
     }

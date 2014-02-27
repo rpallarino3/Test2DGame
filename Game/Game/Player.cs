@@ -15,19 +15,28 @@ namespace PlayerStuff
         private Image playerRight = Image.FromFile("../../../Images/Player/playerright.png");
         private Image playerDown = Image.FromFile("../../../Images/Player/playerdown.png");
         private Image playerLeft = Image.FromFile("../../../Images/Player/playerleft.png");
+        private Image bigPlayerUp = Image.FromFile("../../../Images/Player/bigplayerup.png");
+        private Image bigPlayerRight = Image.FromFile("../../../Images/Player/bigplayerright.png");
+        private Image bigPlayerDown = Image.FromFile("../../../Images/Player/bigplayerdown.png");
+        private Image bigPlayerLeft = Image.FromFile("../../../Images/Player/bigplayerleft.png");
         private Image currentImage;
         private int currentZoneLevel;
         private int xOffset;
         private int yOffset;
         private int moveSpeed;
 
+        private int drawOffsetY;
+
+        private readonly int walkingOffset = 30;
+
         public Player()
         {
             globalLocation = new Point(0, 0);
-            currentImage = playerUp;
+            currentImage = bigPlayerUp;
             xOffset = currentImage.Width / 2;
-            yOffset = currentImage.Height / 2;
-            moveSpeed = 1;
+            yOffset = walkingOffset - currentImage.Height / 2;
+            drawOffsetY = currentImage.Height - walkingOffset;
+            moveSpeed = 4;
             currentZoneLevel = 0;
         }
 
@@ -39,6 +48,16 @@ namespace PlayerStuff
         public int getYOffset()
         {
             return yOffset;
+        }
+
+        public int getWalkingOffset()
+        {
+            return walkingOffset;
+        }
+
+        public int getDrawOffsetY()
+        {
+            return drawOffsetY;
         }
 
         public Image getImage()
@@ -53,42 +72,42 @@ namespace PlayerStuff
 
         public Image getUpImage()
         {
-            return playerUp;
+            return bigPlayerUp;
         }
 
         public Image getDownImage()
         {
-            return playerDown;
+            return bigPlayerDown;
         }
 
         public Image getRightImage()
         {
-            return playerRight;
+            return bigPlayerRight;
         }
 
         public Image getLeftImage()
         {
-            return playerLeft;
+            return bigPlayerLeft;
         }
 
-        public void moveGlobalUp()
+        public void moveGlobalUp(int distance)
         {
-            moveGlobalLocation(0, -moveSpeed);
+            moveGlobalLocation(0, -distance);
         }
 
-        public void moveGlobalDown()
+        public void moveGlobalDown(int distance)
         {
-            moveGlobalLocation(0, moveSpeed);
+            moveGlobalLocation(0, distance);
         }
 
-        public void moveGlobalLeft()
+        public void moveGlobalLeft(int distance)
         {
-            moveGlobalLocation(-moveSpeed, 0);
+            moveGlobalLocation(-distance, 0);
         }
 
-        public void moveGlobalRight()
+        public void moveGlobalRight(int distance)
         {
-            moveGlobalLocation(moveSpeed, 0);
+            moveGlobalLocation(distance, 0);
         }
 
         public Point getGlobalLocation()

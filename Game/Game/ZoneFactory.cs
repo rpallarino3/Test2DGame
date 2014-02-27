@@ -9,10 +9,15 @@ namespace Environment
     class ZoneFactory
     {
 
+        private TestZoneFactory testZoneFactory;
+
         private Zone currentZone;
 
         public ZoneFactory()
         {
+
+            testZoneFactory = new TestZoneFactory();
+            currentZone = testZoneFactory.getTestZone();
         }
 
         public Zone getCurrentZone()

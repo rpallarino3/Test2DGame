@@ -44,6 +44,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="MenuFactory.cs" />
     <Compile Include="MovementHandler.cs" />
+    <Compile Include="NPC.cs" />
     <Compile Include="OptionsMenu.cs" />
     <Compile Include="PaintHandler.cs" />
     <Compile Include="Game.cs">
@@ -53,6 +54,8 @@
     <Compile Include="StartMenu.cs" />
     <Compile Include="TestCave.cs" />
     <Compile Include="TestZone.cs" />
+    <Compile Include="TestZoneFactory.cs" />
+    <Compile Include="TrafficMap.cs" />
     <Compile Include="TransitionHandler.cs" />
     <Compile Include="TransitionMap.cs" />
     <Compile Include="Zone.cs" />

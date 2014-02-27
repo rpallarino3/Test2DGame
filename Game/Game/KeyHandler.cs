@@ -47,9 +47,9 @@ namespace Game
             }
         }
 
-        public void movePlayer(Player player, Zone currentZone)
+        public void movePlayer(Player player, ZoneFactory zoneFactory)
         {
-            movementHandler.movePlayer(player, currentZone, keysDown);
+            movementHandler.movePlayer(player, zoneFactory, keysDown);
         }
 
         public void menuMove(MenuFactory menuFactory, GameState gs)

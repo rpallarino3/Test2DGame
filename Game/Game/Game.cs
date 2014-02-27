@@ -24,7 +24,6 @@ namespace Game
         private KeyHandler keyHandler;
         private PaintHandler paintHandler;
         private Stopwatch stopwatch;
-        private Zone currentZone;
         private Player player;
         private ZoneFactory zoneFactory;
         private MenuFactory menuFactory;
@@ -42,8 +41,9 @@ namespace Game
             //Size = new System.Drawing.Size(900, 600);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             //FormBorderStyle = FormBorderStyle.None;
-            ClientSize = new System.Drawing.Size(900, 600);
-            //MaximizeBox = false;
+            ClientSize = new System.Drawing.Size(900, 600); // make this non resizeable
+            MaximizeBox = false;
+            //DoubleBuffered = true;
             keysDown = new List<Keys>();
             keyHandler = new KeyHandler();
             paintHandler = new PaintHandler();
@@ -53,7 +53,6 @@ namespace Game
             player = new Player();
             player.setGlobalLocation(100, 1000);
             zoneFactory = new ZoneFactory();
-            zoneFactory.setCurrentZone(new TestZone(50, 50));
             stopwatch = new Stopwatch();
             stopwatch.Start();
             gameState = new GameState();
@@ -75,8 +74,8 @@ namespace Game
             }
             else
             {
-                paintHandler.drawZone(g, player, currentZone);
-                keyHandler.movePlayer(player, currentZone);
+                paintHandler.drawZone(g, player, zoneFactory.getCurrentZone());
+                keyHandler.movePlayer(player, zoneFactory);
                 Console.WriteLine(player.getGlobalLocation());
             }
             gameLoop();
