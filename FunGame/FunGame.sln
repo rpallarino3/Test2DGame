@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunGame", "FunGame\FunGame\FunGame.csproj", "{E5D97BEA-0CD7-4105-BA2A-FFB3E2DA41B3}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "FunGameContent", "FunGame\FunGameContent\FunGameContent.contentproj", "{FFFFAE0E-184C-429A-8E61-0171D83DF31C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5D97BEA-0CD7-4105-BA2A-FFB3E2DA41B3}.Debug|x86.ActiveCfg = Debug|x86
+		{E5D97BEA-0CD7-4105-BA2A-FFB3E2DA41B3}.Debug|x86.Build.0 = Debug|x86
+		{E5D97BEA-0CD7-4105-BA2A-FFB3E2DA41B3}.Release|x86.ActiveCfg = Release|x86
+		{E5D97BEA-0CD7-4105-BA2A-FFB3E2DA41B3}.Release|x86.Build.0 = Release|x86
+		{FFFFAE0E-184C-429A-8E61-0171D83DF31C}.Debug|x86.ActiveCfg = Debug|x86
+		{FFFFAE0E-184C-429A-8E61-0171D83DF31C}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
