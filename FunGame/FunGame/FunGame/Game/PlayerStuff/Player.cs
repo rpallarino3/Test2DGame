@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 
 namespace FunGame.Game.PlayerStuff
@@ -23,14 +24,19 @@ namespace FunGame.Game.PlayerStuff
         private int moveSpeed;
         private int facingDirection;
 
-        private readonly int walkingOffset = 30;
+        private readonly int walkingOffset = 15;
 
         private bool isSwordOut;
         private int health;
 
+        private List<Texture2D> activeAnimation;
+        private AnimationPriorities animationPriorities;
+        private int currentAnimationPriority;
+        private int currentAnimationIndex;
+        private bool animationFinished;
+
         public Player()
         {
-
             globalLocation = new Vector2(0, 0);
             drawLocation = new Vector2(0, 0);
 
@@ -39,6 +45,12 @@ namespace FunGame.Game.PlayerStuff
             moveSpeed = 4;
             isSwordOut = false;
             health = 100;
+
+            activeAnimation = new List<Texture2D>();
+            animationPriorities = new AnimationPriorities();
+            currentAnimationPriority = -1;
+            currentAnimationIndex = 0;
+            animationFinished = true;
         }
 
         public Vector2 getGlobalLocation()
@@ -86,6 +98,11 @@ namespace FunGame.Game.PlayerStuff
             return currentZoneLevel;
         }
 
+        public void setZoneLevel(int level)
+        {
+            currentZoneLevel = level;
+        }
+
         public void upOneLevel()
         {
             currentZoneLevel++;
@@ -123,17 +140,17 @@ namespace FunGame.Game.PlayerStuff
 
         public int getYOffset()
         {
-            return walkingOffset - 25;
+            return walkingOffset - 10;
         }
 
         public int getDrawOffsetY()
         {
-            return 20;
+            return 15;
         }
 
         public int getXOffset()
         {
-            return 15;
+            return 10;
         }
 
         public void swordOut()
@@ -171,5 +188,47 @@ namespace FunGame.Game.PlayerStuff
                 health += change;
             }
         }
+
+        public List<Texture2D> getActiveAnimation()
+        {
+            return activeAnimation;
+        }
+
+        public int getCurrentAnimationPriority()
+        {
+            return currentAnimationPriority;
+        }
+
+        public void setNewAnimation(List<Texture2D> animation, string name)
+        {
+            animationFinished = false;
+            activeAnimation = animation;
+            currentAnimationPriority = animationPriorities.getPriority(name);
+        }
+
+        public void advanceCurrentAnimation()
+        {
+            if (currentAnimationIndex < activeAnimation.Count - 1)
+            {
+                currentAnimationIndex++;
+            }
+            else
+            {
+                currentAnimationIndex = 0;
+                currentAnimationPriority = -1;
+                animationFinished = true;
+            }
+        }
+
+        public int getAnimationIndex()
+        {
+            return currentAnimationIndex;
+        }
+
+        public bool isAnimationFinished()
+        {
+            return animationFinished;
+        }
+
     }
 }

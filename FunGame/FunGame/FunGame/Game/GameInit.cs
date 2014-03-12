@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Xml.Serialization;
 
 using FunGame.Game.ContentHandlers;
 using FunGame.Game.PlayerStuff;
@@ -9,8 +11,10 @@ using FunGame.Game.Environment;
 using FunGame.Game.PaintHandlers;
 using FunGame.Game.KeyHandlers;
 
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Storage;
 
 namespace FunGame.Game
 {
@@ -25,6 +29,7 @@ namespace FunGame.Game
         private Player player;
         private ZoneFactory zoneFactory;
 
+
         public GameInit(ContentManager content)
         {
 
@@ -34,8 +39,6 @@ namespace FunGame.Game
             keyHandler = new KeyHandler(this);
             gameState = new GameState();
             zoneFactory = new ZoneFactory();
-            player.setGlobalLocation(new Microsoft.Xna.Framework.Vector2(100, 1000));
-            keyHandler.getMovementHandler().updateDrawLocations(player, zoneFactory.getCurrentZone());
         }
 
         public PaintHandler getPaintHandler()
@@ -67,5 +70,9 @@ namespace FunGame.Game
         {
             return player;
         }
+
+        
+
+
     }
 }

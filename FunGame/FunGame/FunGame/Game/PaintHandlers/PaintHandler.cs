@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using FunGame.Game.NPCandEnemies;
+using FunGame.Game.NPCStuff;
+using FunGame.Game.EnemyStuff;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -37,7 +38,6 @@ namespace FunGame.Game.PaintHandlers
 
         private void drawZone(SpriteBatch sb)
         {
-
             float drawWindowTopX = gameInit.getPlayer().getGlobalLocation().X - gameInit.getPlayer().getDrawLocation().X;
             float drawWindowTopY = gameInit.getPlayer().getGlobalLocation().Y - gameInit.getPlayer().getDrawLocation().Y - gameInit.getPlayer().getDrawOffsetY();
 
@@ -47,30 +47,194 @@ namespace FunGame.Game.PaintHandlers
                 {
                     sb.Draw(currentZoneImages[i], gameInit.getZoneFactory().getCurrentZone().getDrawLocation(), Color.White);
 
-                    List<NPC> inFrontNPCs = new List<NPC>();
-                    List<NPC> behindNPCs = new List<NPC>();
+                    List<Vector2> globalPoints = new List<Vector2>();
+                    List<Vector2> drawPoints = new List<Vector2>();
+                    List<Texture2D> images = new List<Texture2D>();
+                    
+                    globalPoints.Add(gameInit.getPlayer().getGlobalLocation());
+                    drawPoints.Add(gameInit.getPlayer().getDrawLocation());
+                    //images.Add(gameInit.getContentHandler().getPlayerImages()[gameInit.getPlayer().getFacingDirection()]);
+                    Console.WriteLine("Animation Size: " + gameInit.getPlayer().getActiveAnimation().Count);
+                    images.Add(gameInit.getPlayer().getActiveAnimation()[gameInit.getPlayer().getAnimationIndex()]);
 
-                    for (int j = 0; j < gameInit.getZoneFactory().getCurrentZone().getNPCs().Count; j++)
+                    List<NPC> npcs = gameInit.getZoneFactory().getCurrentZone().getNPCs();
+
+                    for (int j = 0; j < npcs.Count; j++)
                     {
-                        if (gameInit.getZoneFactory().getCurrentZone().getNPCs()[j].getCurrentLocation().Y > gameInit.getPlayer().getGlobalLocation().Y)
+                        NPC currentNPC = npcs[j];
+                        if (currentNPC.getCurrentLevel() == i)
                         {
-                            inFrontNPCs.Add(gameInit.getZoneFactory().getCurrentZone().getNPCs()[j]);
-                        }
-                        else
-                        {
-                            behindNPCs.Add(gameInit.getZoneFactory().getCurrentZone().getNPCs()[j]);
+                            float NPCX = currentNPC.getCurrentLocation().X;
+                            float NPCY = currentNPC.getCurrentLocation().Y;
+                            float xLeft = NPCX + currentNPC.getWidth();
+                            float xRight = NPCX;
+                            float yTop = NPCY + currentNPC.getHeight();
+                            float yBot = NPCY - currentNPC.getYOffset();
+
+                            if (xLeft > drawWindowTopX && xRight < drawWindowTopX + 900 && yTop > drawWindowTopY && yBot < drawWindowTopY + 600)
+                            {
+                                int index = getIndex(new Vector2(NPCX, NPCY), globalPoints);
+                                drawPoints.Insert(index, new Vector2(NPCX - drawWindowTopX, NPCY - drawWindowTopY - currentNPC.getYOffset()));
+                                images.Insert(index, gameInit.getContentHandler().getNPCImages()[currentNPC.getName()][0]);
+                            }
                         }
                     }
 
-                    drawNPCs(sb, behindNPCs, drawWindowTopX, drawWindowTopY, i);
-                    drawPlayer(sb);
-                    drawNPCs(sb, inFrontNPCs, drawWindowTopX, drawWindowTopY, i);
+                    List<Enemy> enemies = gameInit.getZoneFactory().getCurrentZone().getEnemies();
+
+                    for (int k = 0; k < enemies.Count; k++)
+                    {
+                        Enemy currentEnemy = enemies[k];
+                        if (currentEnemy.getCurrentZoneLevel() == i)
+                        {
+                            float enemyX = currentEnemy.getLocation().X;
+                            float enemyY = currentEnemy.getLocation().Y;
+                            float xLeft = enemyX;
+                            float xRight = enemyX + currentEnemy.getSize().X;
+                            float yTop = enemyY - currentEnemy.getSize().Y + currentEnemy.getWalkingSize().Y;
+                            float yBot = enemyY + currentEnemy.getWalkingSize().Y;
+
+                            if (xRight > drawWindowTopX && xLeft < drawWindowTopX + 900 && yBot > drawWindowTopY && yTop < drawWindowTopX + 600)
+                            {
+                                int index = getIndex(new Vector2(enemyX, enemyY), globalPoints);
+                                drawPoints.Insert(index, new Vector2(xLeft - drawWindowTopX, yTop - drawWindowTopY));
+                                images.Insert(index, gameInit.getContentHandler().getGoblinImages()[0]); // fix this to reflect enemy type
+                            }
+                        }
+                    }
+
+                    //add one for enemies too, and anything else
+                    List<EnemySpawner> es = gameInit.getZoneFactory().getCurrentZone().getEnemySpawners();
+
+                    for (int l = 0; l < es.Count; l++)
+                    {
+                        EnemySpawner currentSpawner = es[l];
+                        if (currentSpawner.getZoneLevel() == i)
+                        {
+                            float spawnerXLeft = currentSpawner.getLocation().X;
+                            float spawnerYTop = currentSpawner.getLocation().Y;
+                            float spawnerXRight = spawnerXLeft + currentSpawner.getWidth();
+                            float spawnerYBottom = spawnerYTop + currentSpawner.getHeight();
+
+                            if (spawnerXRight > drawWindowTopX && spawnerXLeft < drawWindowTopX + 900 && spawnerYBottom > drawWindowTopY && spawnerYTop < drawWindowTopY + 600)
+                            {
+                                int index = getIndex(new Vector2(spawnerXLeft, spawnerYTop), globalPoints);
+                                drawPoints.Insert(index, new Vector2(spawnerXLeft - drawWindowTopX, spawnerYTop - drawWindowTopY));
+                                images.Insert(index, gameInit.getContentHandler().getSpawnerImages()[currentSpawner.getType()][0]);
+                            }
+                        }
+                    }
+
+                    for (int m = 0; m < drawPoints.Count; m++)
+                    {
+                        sb.Draw(images[m], drawPoints[m], Color.White);
+                    }
                 }
                 else
                 {
                     sb.Draw(currentZoneImages[i], gameInit.getZoneFactory().getCurrentZone().getDrawLocation(), Color.White);
-                    drawNPCs(sb, gameInit.getZoneFactory().getCurrentZone().getNPCs(), drawWindowTopX, drawWindowTopY, i);
+
+                    List<Vector2> globalPoints = new List<Vector2>();
+                    List<Vector2> drawPoints = new List<Vector2>();
+                    List<Texture2D> images = new List<Texture2D>();
+
+                    List<NPC> npcs = gameInit.getZoneFactory().getCurrentZone().getNPCs();
+
+                    for (int j = 0; j < gameInit.getZoneFactory().getCurrentZone().getNPCs().Count; j++)
+                    {
+                        NPC currentNPC = npcs[j];
+                        if (currentNPC.getCurrentLevel() == i)
+                        {
+                            float NPCX = currentNPC.getCurrentLocation().X;
+                            float NPCY = currentNPC.getCurrentLocation().Y;
+                            float xLeft = NPCX + currentNPC.getWidth();
+                            float xRight = NPCX;
+                            float yTop = NPCY + currentNPC.getHeight();
+                            float yBot = NPCY - currentNPC.getYOffset();
+
+                            if (xLeft > drawWindowTopX && xRight < drawWindowTopX + 900 && yTop > drawWindowTopY && yBot < drawWindowTopY + 600)
+                            {
+                                int index = getIndex(new Vector2(NPCX, NPCY), globalPoints);
+                                drawPoints.Insert(index, new Vector2(NPCX - drawWindowTopX, NPCY - drawWindowTopY - currentNPC.getYOffset()));
+                                images.Insert(index, gameInit.getContentHandler().getNPCImages()[currentNPC.getName()][0]);
+                            }
+                        }
+                    }
+
+                    List<Enemy> enemies = gameInit.getZoneFactory().getCurrentZone().getEnemies();
+
+                    for (int k = 0; k < enemies.Count; k++)
+                    {
+                        Enemy currentEnemy = enemies[k];
+                        if (currentEnemy.getCurrentZoneLevel() == i)
+                        {
+                            float enemyX = currentEnemy.getLocation().X;
+                            float enemyY = currentEnemy.getLocation().Y;
+                            float xLeft = enemyX;
+                            float xRight = enemyX + currentEnemy.getSize().X;
+                            float yTop = enemyY - currentEnemy.getSize().Y + currentEnemy.getWalkingSize().Y;
+                            float yBot = enemyY + currentEnemy.getWalkingSize().Y;
+
+                            if (xRight > drawWindowTopX && xLeft < drawWindowTopX + 900 && yBot > drawWindowTopY && yTop < drawWindowTopX + 600)
+                            {
+                                int index = getIndex(new Vector2(enemyX, enemyY), globalPoints);
+                                drawPoints.Insert(index, new Vector2(xLeft - drawWindowTopX, yTop - drawWindowTopY));
+                                images.Insert(index, gameInit.getContentHandler().getGoblinImages()[0]); // fix this to reflect enemy type
+                            }
+                        }
+                    }
+
+                    //add one for enemies too, and anything else
+                    List<EnemySpawner> es = new List<EnemySpawner>();
+
+                    for (int l = 0; l < gameInit.getZoneFactory().getCurrentZone().getEnemySpawners().Count; l++)
+                    {
+                        EnemySpawner currentSpawner = es[l];
+                        if (currentSpawner.getZoneLevel() == i)
+                        {
+                            float spawnerXLeft = currentSpawner.getLocation().X;
+                            float spawnerYTop = currentSpawner.getLocation().Y;
+                            float spawnerXRight = spawnerXLeft + currentSpawner.getWidth();
+                            float spawnerYBottom = spawnerYTop + currentSpawner.getHeight();
+
+                            if (spawnerXRight > drawWindowTopX && spawnerXLeft < drawWindowTopX + 900 && spawnerYBottom > drawWindowTopY && spawnerYTop < drawWindowTopY + 600)
+                            {
+                                int index = getIndex(new Vector2(spawnerXLeft, spawnerYTop), globalPoints);
+                                drawPoints.Insert(index, new Vector2(spawnerXLeft - drawWindowTopX, spawnerYTop - drawWindowTopY));
+                                images.Insert(index, gameInit.getContentHandler().getSpawnerImages()[currentSpawner.getType()][0]);
+                            }
+                        }
+                    }
+
+                    for (int m = 0; m < drawPoints.Count; m++)
+                    {
+                        sb.Draw(images[m], drawPoints[m], Color.White);
+                    }
                 }
+            }
+        }
+
+        private int getIndex(Vector2 point, List<Vector2> globalPoints)
+        {
+            int index = 0;
+            if (globalPoints.Count == 0)
+            {
+                globalPoints.Insert(0, point);
+                return index;
+            }
+            else
+            {
+                for (int i = 0; i < globalPoints.Count; i++)
+                {
+                    if (point.Y < globalPoints[i].Y)
+                    {
+                        index = i;
+                        globalPoints.Insert(i, point);
+                        return index;
+                    }
+                }
+                globalPoints.Insert(globalPoints.Count, point);
+                return globalPoints.Count - 1;
             }
         }
 
@@ -98,31 +262,10 @@ namespace FunGame.Game.PaintHandlers
             }
         }
 
-        private void drawNPCs(SpriteBatch sb, List<NPC> npcs, float windowX, float windowY, int currentLevel)
-        {
-            for (int i = 0; i < npcs.Count; i++)
-            {
-                NPC currentNPC = npcs[i];
-                if (currentNPC.getCurrentLevel() == currentLevel)
-                {
-                    float NPCX = currentNPC.getCurrentLocation().X;
-                    float NPCY = currentNPC.getCurrentLocation().Y;
-                    float xLeft = NPCX + currentNPC.getWidth();
-                    float xRight = NPCX;
-                    float yTop = NPCY + currentNPC.getHeight();
-                    float yBot = NPCY - currentNPC.getYOffset();
-
-                    if (xLeft > windowX && xRight < windowX + 900 && yTop > windowY && yBot < windowY + 600)
-                    {
-                        sb.Draw(gameInit.getContentHandler().getNPCImages()[currentNPC.getName()][0], new Vector2(NPCX - windowX, NPCY - windowY - currentNPC.getYOffset()), Color.White);
-                    }
-                }
-            }
-        }
-
         public void updateZoneImages(List<Texture2D> newImages)
         {
             currentZoneImages = newImages;
         }
+
     }
 }

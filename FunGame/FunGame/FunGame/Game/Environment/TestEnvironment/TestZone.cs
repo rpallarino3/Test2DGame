@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using FunGame.Game.NPCandEnemies;
+using FunGame.Game.NPCStuff;
+using FunGame.Game.EnemyStuff;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FunGame.Game.Environment.TestEnvironment
 {
@@ -21,6 +23,9 @@ namespace FunGame.Game.Environment.TestEnvironment
 
         private TrafficMap level1TrafficMap;
         private TrafficMap level2TrafficMap;
+
+        private EnemyMap level1EnemyMap;
+        private EnemyMap level2EnemyMap;
 
         public TestZone(int width, int height)
         {
@@ -51,18 +56,26 @@ namespace FunGame.Game.Environment.TestEnvironment
             trafficMap.Add(level1TrafficMap);
             trafficMap.Add(level2TrafficMap);
             fillLevel1TrafficMap();
+
+            level1EnemyMap = new EnemyMap(height, width);
+            level2EnemyMap = new EnemyMap(height, width);
+            enemyMap.Add(level1EnemyMap);
+            enemyMap.Add(level2EnemyMap);
             
         }
 
         private void createLists()
         {
-            //levels = new List<Image>();
+            levels = new List<Texture2D>();
             collisionMap = new List<CollisionMap>();
             transitionMap = new List<TransitionMap>();
             transitionZones = new List<Zone>();
             transitionPoints = new List<Vector2>();
             trafficMap = new List<TrafficMap>();
             npcList = new List<NPC>();
+            enemyList = new List<Enemy>();
+            spawnerList = new List<EnemySpawner>();
+            enemyMap = new List<EnemyMap>();
         }
 
         private void fillLevel1()
@@ -109,12 +122,16 @@ namespace FunGame.Game.Environment.TestEnvironment
             //testNPC.setStationaryImage(Image.FromFile("../../../Images/NPCs/TestZones/TestZone/TestNPC/StationaryImage.png"));
             //testNPC2.setStationaryImage(Image.FromFile("../../../Images/NPCs/TestZones/TestZone/TestNPC/LargeStationaryImage.png"));
             //testNPC3.setStationaryImage(Image.FromFile("../../../Images/NPCs/TestZones/TestZone/TestNPC/LargeTallStationaryImage.png"));
-            level1TrafficMap.insertNPC(testNPC, 1200, 300, 30, 30); //use npc height and width etc.
-            level1TrafficMap.insertNPC(testNPC2, 1200, 350, 30, 30);
-            level1TrafficMap.insertNPC(testNPC3, 750, 750, 30, 60);
+            //level1TrafficMap.insertNPC(testNPC, 1200, 300, 30, 30); //use npc height and width etc.
+            //level1TrafficMap.insertNPC(testNPC2, 1200, 350, 30, 30);
+            //level1TrafficMap.insertNPC(testNPC3, 750, 750, 30, 60);
+            level1TrafficMap.insertNPC(testNPC);
+            level1TrafficMap.insertNPC(testNPC2);
+            level1TrafficMap.insertNPC(testNPC3);
             npcList.Add(testNPC);
             npcList.Add(testNPC2);
             npcList.Add(testNPC3);
+
         }
     }
 }

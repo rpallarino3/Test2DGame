@@ -17,6 +17,8 @@ namespace FunGame.Game.KeyHandlers
         private Dictionary<Keys, int> keyTime;
         private Dictionary<Keys, int> tempKeyTime;
 
+        private IAsyncResult result;
+
         private int swordCounter;
 
         public KeyHandler(GameInit gameInit)
@@ -53,37 +55,97 @@ namespace FunGame.Game.KeyHandlers
             }
         }
 
-        public void updateKeys(KeyboardState keyboardState)
+        public void updateKeys(KeyboardState keyboardState) // all this needs to be redone for the animations
         {
             incrementCounters(keyboardState.GetPressedKeys());
 
             if (gameInit.getGameState().getState() == 0)
             {
-                if (keyboardState.IsKeyDown(Keys.Enter))
-                {
-                    gameInit.getGameState().setGameState(); // on transition to game state we should create all the zones based on the players current location
-                    // that way we can use the content files in the creation of things
-                }
+                
             }
             else if (gameInit.getGameState().getState() == 1)
             {
+
+                gameInit.getPlayer().advanceCurrentAnimation();
+                Console.WriteLine(gameInit.getPlayer().getAnimationIndex());
+                setFacingDirection();
+
                 if (keyboardState.IsKeyDown(Keys.W))
                 {
-                    movementHandler.movePlayerUp(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    if (gameInit.getPlayer().getCurrentAnimationPriority() < 0 && gameInit.getPlayer().getFacingDirection() == 0)
+                    {
+                        gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["WALK_UP"], "WALK_UP");
+                        movementHandler.movePlayerUp(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
+                    else
+                    {
+
+                        movementHandler.movePlayerUp(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
                 }
                 if (keyboardState.IsKeyDown(Keys.S))
                 {
-                    movementHandler.movePlayerDown(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    if (gameInit.getPlayer().getCurrentAnimationPriority() < 0 && gameInit.getPlayer().getFacingDirection() == 1)
+                    {
+                        gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["WALK_DOWN"], "WALK_DOWN");
+                        movementHandler.movePlayerDown(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
+                    else
+                    {
+
+                        movementHandler.movePlayerDown(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
                 }
                 if (keyboardState.IsKeyDown(Keys.D))
                 {
-                    movementHandler.movePlayerRight(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    if (gameInit.getPlayer().getCurrentAnimationPriority() < 0 && gameInit.getPlayer().getFacingDirection() == 2)
+                    {
+                        gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["WALK_RIGHT"], "WALK_RIGHT");
+                        movementHandler.movePlayerRight(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
+                    else
+                    {
+
+                        movementHandler.movePlayerRight(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
                 }
                 if (keyboardState.IsKeyDown(Keys.A))
                 {
-                    movementHandler.movePlayerLeft(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    if (gameInit.getPlayer().getCurrentAnimationPriority() < 0 && gameInit.getPlayer().getFacingDirection() == 3)
+                    {
+                        gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["WALK_LEFT"], "WALK_LEFT");
+                        movementHandler.movePlayerLeft(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
+                    else
+                    {
+
+                        movementHandler.movePlayerLeft(gameInit.getPlayer(), gameInit.getZoneFactory());
+                    }
                 }
-                setFacingDirection();
+                else
+                {
+                    // set animation to stationary animation
+                    if (gameInit.getPlayer().getCurrentAnimationPriority() <= 0 && gameInit.getPlayer().isAnimationFinished() == true)
+                    {
+                        int direction = gameInit.getPlayer().getFacingDirection();
+                        if (direction == 0)
+                        {
+                            gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["STATIONARY_UP"], "STATIONARY_UP");
+                        }
+                        else if (direction == 1)
+                        {
+                            gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["STATIONARY_DOWN"], "STATIONARY_DOWN");
+                        }
+                        else if (direction == 2)
+                        {
+                            gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["STATIONARY_RIGHT"], "STATIONARY_RIGHT");
+                        }
+                        else if (direction == 3)
+                        {
+                            gameInit.getPlayer().setNewAnimation(gameInit.getContentHandler().getPlayerContentHandler().getPlayerAnimations()["STATIONARY_LEFT"], "STATIONARY_LEFT");
+                        }
+                    }
+                }
 
                 if (keyboardState.IsKeyDown(Keys.Space))
                 {

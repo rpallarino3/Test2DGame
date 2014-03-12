@@ -64,15 +64,24 @@
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\Animation\Animation.cs" />
+    <Compile Include="Game\Animation\AnimationHandler.cs" />
     <Compile Include="Game\ContentHandlers\ContentHandler.cs" />
+    <Compile Include="Game\ContentHandlers\PlayerContentHandler.cs" />
+    <Compile Include="Game\EnemyStuff\EnemyMap.cs" />
+    <Compile Include="Game\EnemyStuff\Enemies\Rabbit.cs" />
+    <Compile Include="Game\EnemyStuff\Enemy.cs" />
+    <Compile Include="Game\EnemyStuff\Enemies\Goblin.cs" />
     <Compile Include="Game\Environment\CollisionMap.cs" />
     <Compile Include="Game\Environment\TestEnvironment\TestBattleZone.cs" />
     <Compile Include="Game\Environment\TestEnvironment\TestCave.cs" />
@@ -80,8 +89,9 @@
     <Compile Include="Game\Environment\TestEnvironment\TestZoneFactory.cs" />
     <Compile Include="Game\KeyHandlers\KeyHandler.cs" />
     <Compile Include="Game\KeyHandlers\MovementHandler.cs" />
-    <Compile Include="Game\NPCandEnemies\NPC.cs" />
-    <Compile Include="Game\NPCandEnemies\TrafficMap.cs" />
+    <Compile Include="Game\EnemyStuff\EnemySpawner.cs" />
+    <Compile Include="Game\NPCStuff\NPC.cs" />
+    <Compile Include="Game\NPCStuff\TrafficMap.cs" />
     <Compile Include="Game\Environment\TransitionHandler.cs" />
     <Compile Include="Game\Environment\TransitionMap.cs" />
     <Compile Include="Game\Environment\Zone.cs" />
@@ -89,6 +99,7 @@
     <Compile Include="Game\GameInit.cs" />
     <Compile Include="Game\GameState.cs" />
     <Compile Include="Game\PaintHandlers\PaintHandler.cs" />
+    <Compile Include="Game\PlayerStuff\AnimationPriorities.cs" />
     <Compile Include="Game\PlayerStuff\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

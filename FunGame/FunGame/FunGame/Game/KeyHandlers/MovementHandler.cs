@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using FunGame.Game.PlayerStuff;
 using FunGame.Game.Environment;
+using FunGame.Game.EnemyStuff;
 
 using Microsoft.Xna.Framework;
 
@@ -27,7 +28,26 @@ namespace FunGame.Game.KeyHandlers
         {
             player.moveUp(checkUpCollision(player, zoneFactory.getCurrentZone()));
             updateDrawLocations(player, zoneFactory.getCurrentZone());
-            transitionHandler.checkTransitions(player, zoneFactory);
+            checkEnemySpawns(player, zoneFactory);
+            transitionHandler.checkTransitions(player, zoneFactory); //transitions need to be fixed
+        }
+
+        private void checkEnemySpawns(Player player, ZoneFactory zoneFactory)
+        {
+            float playerCenterX = player.getGlobalLocation().X + 10;
+            float playerCenterY = player.getGlobalLocation().Y + 5;
+
+            for (int i = 0; i < zoneFactory.getCurrentZone().getEnemySpawners().Count; i++)
+            {
+                EnemySpawner currentSpawner = zoneFactory.getCurrentZone().getEnemySpawners()[i];
+                double xDist = Math.Pow(playerCenterX - (currentSpawner.getLocation().X + currentSpawner.getWidth() / 2), 2);
+                double yDist = Math.Pow(playerCenterY - (currentSpawner.getLocation().Y + currentSpawner.getHeight() / 2), 2);
+
+                if (Math.Sqrt(xDist + yDist) <= currentSpawner.getSpawnThreshold())
+                {
+                    currentSpawner.spawnEnemy("Goblin", zoneFactory.getCurrentZone(), player.getCurrentZoneLevel());
+                }
+            }
         }
 
         private int checkUpCollision(Player player, Zone currentZone)
@@ -36,7 +56,10 @@ namespace FunGame.Game.KeyHandlers
             Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y - player.getMoveSpeed());
             for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j] == true)
+                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
+                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
+                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
+                if (collision == false || npc == true || enemy == true)
                 {
                     if (i < player.getMoveSpeed())
                     {
@@ -57,6 +80,7 @@ namespace FunGame.Game.KeyHandlers
         {
             player.moveLeft(checkLeftCollision(player, zoneFactory.getCurrentZone()));
             updateDrawLocations(player, zoneFactory.getCurrentZone());
+            checkEnemySpawns(player, zoneFactory);
             transitionHandler.checkTransitions(player, zoneFactory);
         }
 
@@ -66,7 +90,10 @@ namespace FunGame.Game.KeyHandlers
             Vector2 startingCollision = new Vector2(player.getGlobalLocation().X - player.getMoveSpeed(), player.getGlobalLocation().Y);
             for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X] == true)
+                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
+                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
+                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
+                if (collision == false || npc == true || enemy == true)
                 {
                     if (i < player.getMoveSpeed())
                     {
@@ -87,16 +114,20 @@ namespace FunGame.Game.KeyHandlers
         {
             player.moveDown(checkDownCollision(player, zoneFactory.getCurrentZone()));
             updateDrawLocations(player, zoneFactory.getCurrentZone());
+            checkEnemySpawns(player, zoneFactory);
             transitionHandler.checkTransitions(player, zoneFactory);
         }
 
         private int checkDownCollision(Player player, Zone currentZone)
         {
             int i = 0;
-            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y + 29 + player.getMoveSpeed());
+            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y + 14 + player.getMoveSpeed());
             for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j] == true)
+                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
+                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
+                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
+                if (collision == false || npc == true || enemy == true)
                 {
                     if (i < player.getMoveSpeed())
                     {
@@ -117,16 +148,20 @@ namespace FunGame.Game.KeyHandlers
         {
             player.moveRight(checkRightCollision(player, zoneFactory.getCurrentZone()));
             updateDrawLocations(player, zoneFactory.getCurrentZone());
+            checkEnemySpawns(player, zoneFactory);
             transitionHandler.checkTransitions(player, zoneFactory);
         }
 
         private int checkRightCollision(Player player, Zone currentZone)
         {
             int i = 0;
-            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X + 29 + player.getMoveSpeed(), player.getGlobalLocation().Y);
+            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X + 19 + player.getMoveSpeed(), player.getGlobalLocation().Y);
             for (int j = 0; j < player.getWalkingOffset(); j++)
             {
-                if (currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X] == false || currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X] == true)
+                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
+                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
+                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
+                if (collision == false || npc == true || enemy == true)
                 {
                     if (i < player.getMoveSpeed())
                     {

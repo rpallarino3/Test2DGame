@@ -33,9 +33,9 @@ namespace FunGame.Game.Environment
 
         private int isTransition(Vector2 start, Player player, Zone currentZone)
         {
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 20; i++)
             {
-                for (int j = 0; j < 30; j++)
+                for (int j = 0; j < 20; j++)
                 {
                     int transNum = currentZone.getTransitionMap()[player.getCurrentZoneLevel()].getTransitionMap()[(int)start.Y + i, (int)start.X + j];
                     if (transNum != 0)
@@ -49,6 +49,8 @@ namespace FunGame.Game.Environment
 
         private void transitionZones(Player player, ZoneFactory zoneFactory, int zoneNumber, int transitionNumber)
         {
+            Console.WriteLine("transitioning");
+            zoneFactory.getCurrentZone().clearEnemies();
             switch (zoneNumber)
             {
                 case -1:
@@ -71,7 +73,6 @@ namespace FunGame.Game.Environment
         private void testZoneTransition(Player player, ZoneFactory zoneFactory, int transitionNumber)
         {
             Zone currentZone;
-            Console.WriteLine(transitionNumber);
             switch (transitionNumber)
             {
                 case 1:
@@ -98,7 +99,6 @@ namespace FunGame.Game.Environment
         private void testCaveTransition(Player player, ZoneFactory zoneFactory, int transitionNumber)
         {
             Zone currentZone;
-            Console.WriteLine(transitionNumber);
             switch (transitionNumber)
             {
                 case 1:
@@ -114,7 +114,6 @@ namespace FunGame.Game.Environment
         private void testBattleZoneTransition(Player player, ZoneFactory zoneFactory, int transitionNumber)
         {
             Zone currentZone;
-            Console.WriteLine(transitionNumber);
             switch (transitionNumber)
             {
                 case 1:

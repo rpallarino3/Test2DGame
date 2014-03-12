@@ -17,10 +17,9 @@ namespace FunGame.Game.Environment.TestEnvironment
 
         public TestZoneFactory()
         {
-            createZones();
         }
 
-        private void createZones()
+        public void loadZones()
         {
 
             testZone = new TestZone(1500, 1500);

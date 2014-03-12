@@ -10,9 +10,10 @@ namespace FunGame.Game.ContentHandlers
     class ContentHandler
     {
 
-        ContentManager content;
+        private ContentManager content;
 
-        private List<Texture2D> playerImages;
+        private PlayerContentHandler playerContentHandler;
+
         private List<Texture2D> swordImages;
         private List<Texture2D> testZoneImages; // make a zone content handler
         private List<Texture2D> testCaveImages;
@@ -20,14 +21,17 @@ namespace FunGame.Game.ContentHandlers
         private List<Texture2D> testNPCImagesA;
         private List<Texture2D> testNPCImagesB;
         private List<Texture2D> testNPCImagesC;
+        private List<Texture2D> testSpawnerImages;
+        private List<Texture2D> testGoblinImages;
 
         private Dictionary<int, List<Texture2D>> zoneImages;
-        private Dictionary<String, List<Texture2D>> npcImages;
+        private Dictionary<string, List<Texture2D>> npcImages;
+        private Dictionary<string, List<Texture2D>> spawnerImages;
 
         public ContentHandler(ContentManager content)
         {
             this.content = content;
-            playerImages = new List<Texture2D>();
+            playerContentHandler = new PlayerContentHandler(content);
             swordImages = new List<Texture2D>();
             testZoneImages = new List<Texture2D>();
             testCaveImages = new List<Texture2D>();
@@ -35,9 +39,12 @@ namespace FunGame.Game.ContentHandlers
             testNPCImagesA = new List<Texture2D>();
             testNPCImagesB = new List<Texture2D>();
             testNPCImagesC = new List<Texture2D>();
+            testSpawnerImages = new List<Texture2D>();
+            testGoblinImages = new List<Texture2D>();
 
             zoneImages = new Dictionary<int, List<Texture2D>>();
-            npcImages = new Dictionary<String, List<Texture2D>>();
+            npcImages = new Dictionary<string, List<Texture2D>>();
+            spawnerImages = new Dictionary<string, List<Texture2D>>();
         }
 
         public void loadContent()
@@ -45,21 +52,20 @@ namespace FunGame.Game.ContentHandlers
             loadPlayerContent();
             loadZoneContent();
             loadNPCContent();
+            loadEnemyContent();
         }
 
-        public void loadPlayerContent()
+        private void loadPlayerContent()
         {
-            playerImages.Add(content.Load<Texture2D>("Images/Player/bigplayerup"));
-            playerImages.Add(content.Load<Texture2D>("Images/Player/bigplayerdown"));
-            playerImages.Add(content.Load<Texture2D>("Images/Player/bigplayerright"));
-            playerImages.Add(content.Load<Texture2D>("Images/Player/bigplayerleft"));
+            playerContentHandler.loadContent();
+
             swordImages.Add(content.Load<Texture2D>("Images/Player/swordup"));
             swordImages.Add(content.Load<Texture2D>("Images/Player/sworddown"));
             swordImages.Add(content.Load<Texture2D>("Images/Player/swordright"));
             swordImages.Add(content.Load<Texture2D>("Images/Player/swordleft"));
         }
 
-        public void loadZoneContent()
+        private void loadZoneContent()
         {
             testZoneImages.Add(content.Load<Texture2D>("Images/Zones/TestGrassZoneFloor1"));
             testZoneImages.Add(content.Load<Texture2D>("Images/Zones/TestGrassZoneFloor2"));
@@ -69,9 +75,13 @@ namespace FunGame.Game.ContentHandlers
             zoneImages.Add(-1, testZoneImages);
             zoneImages.Add(-2, testCaveImages);
             zoneImages.Add(-3, testBattleZoneImages);
+
+            testSpawnerImages.Add(content.Load<Texture2D>("Images/Enemies/Spawners/TestSpawners/testspawner"));
+
+            spawnerImages.Add("Test", testSpawnerImages);
         }
 
-        public void loadNPCContent()
+        private void loadNPCContent()
         {
             testNPCImagesA.Add(content.Load<Texture2D>("Images/NPCs/TestZones/TestZone/TestNPC/StationaryImage"));
             npcImages.Add("A", testNPCImagesA);
@@ -84,9 +94,14 @@ namespace FunGame.Game.ContentHandlers
 
         }
 
+        private void loadEnemyContent()
+        {
+            testGoblinImages.Add(content.Load<Texture2D>("Images/Enemies/Enemies/TestGoblin/goblintest"));
+        }
+
         public List<Texture2D> getPlayerImages()
         {
-            return playerImages;
+            return playerContentHandler.getStationaryImages();
         }
 
         public List<Texture2D> getSwordImages()
@@ -94,14 +109,29 @@ namespace FunGame.Game.ContentHandlers
             return swordImages;
         }
 
+        public List<Texture2D> getGoblinImages()
+        {
+            return testGoblinImages;
+        }
+
+        public PlayerContentHandler getPlayerContentHandler()
+        {
+            return playerContentHandler;
+        }
+
         public Dictionary<int, List<Texture2D>> getZoneImages()
         {
             return zoneImages;
         }
 
-        public Dictionary<String, List<Texture2D>> getNPCImages()
+        public Dictionary<string, List<Texture2D>> getNPCImages()
         {
             return npcImages;
+        }
+
+        public Dictionary<string, List<Texture2D>> getSpawnerImages()
+        {
+            return spawnerImages;
         }
 
     }

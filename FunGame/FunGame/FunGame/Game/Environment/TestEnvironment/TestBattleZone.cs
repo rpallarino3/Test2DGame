@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using FunGame.Game.NPCandEnemies;
+using FunGame.Game.NPCStuff;
+using FunGame.Game.EnemyStuff;
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FunGame.Game.Environment.TestEnvironment
 {
@@ -15,6 +17,7 @@ namespace FunGame.Game.Environment.TestEnvironment
         private CollisionMap level1;
         private TransitionMap level1Trans;
         private TrafficMap level1TrafficMap;
+        private EnemyMap level1EnemyMap;
 
         public TestBattleZone(int width, int height)
         {
@@ -33,18 +36,27 @@ namespace FunGame.Game.Environment.TestEnvironment
             level1TrafficMap = new TrafficMap(height, width);
             trafficMap.Add(level1TrafficMap);
 
+            level1EnemyMap = new EnemyMap(height, width);
+            enemyMap.Add(level1EnemyMap);
+
             fillLevel1();
             fillLevel1Trans();
+
+            createSpawners();
         }
 
         private void createLists()
         {
+            levels = new List<Texture2D>();
             collisionMap = new List<CollisionMap>();
             transitionMap = new List<TransitionMap>();
             transitionZones = new List<Zone>();
             transitionPoints = new List<Vector2>();
             trafficMap = new List<TrafficMap>();
             npcList = new List<NPC>();
+            enemyList = new List<Enemy>();
+            spawnerList = new List<EnemySpawner>();
+            enemyMap = new List<EnemyMap>();
         }
 
         private void fillLevel1()
@@ -59,6 +71,20 @@ namespace FunGame.Game.Environment.TestEnvironment
         private void fillLevel1Trans()
         {
             level1Trans.fillRectangle(1, 0, 450, 30, 100);
+        }
+
+        private void createSpawners()
+        {
+            EnemySpawner newSpawn = new EnemySpawner("Test", new Vector2(50, 50), 50, 100, false);
+            newSpawn.setZoneLevel(0);
+            newSpawn.falseSpawn(newSpawn.TOP_LEFT);
+            newSpawn.falseSpawn(newSpawn.TOP);
+            newSpawn.falseSpawn(newSpawn.TOP_RIGHT);
+            newSpawn.falseSpawn(newSpawn.LEFT);
+            newSpawn.falseSpawn(newSpawn.BOTTOM_LEFT);
+            spawnerList.Add(newSpawn);
+
+            level1.fillFalseRectangle(50, 50, 100, 50);
         }
     }
 }

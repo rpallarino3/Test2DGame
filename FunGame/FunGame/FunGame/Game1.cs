@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Xml.Serialization;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -9,8 +11,10 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Storage;
 
 using FunGame.Game;
+using FunGame.Game.Environment;
 
 namespace FunGame
 {
@@ -22,8 +26,9 @@ namespace FunGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        private bool saveRequested;
+        private bool loadRequested;
         private GameInit game;
-        private int count = 0;
 
         public Game1()
         {
@@ -36,6 +41,8 @@ namespace FunGame
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 30.0f);
 
             Content.RootDirectory = "Content";
+            saveRequested = false;
+            loadRequested = false;
         }
 
         /// <summary>
@@ -73,6 +80,8 @@ namespace FunGame
             // TODO: Unload any non ContentManager content here
         }
 
+
+        IAsyncResult result;
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -80,16 +89,30 @@ namespace FunGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            count++;
-            //Console.WriteLine(count);
-            //Console.WriteLine("Game time: " + gameTime.TotalGameTime);
-            game.getKeyHandler().updateKeys(Keyboard.GetState());
+            //Console.WriteLine(game.getPlayer().getGlobalLocation());
+            if (Keyboard.GetState().IsKeyDown(Keys.Delete))
+            {
+                //result = requestSave();
+            }
+            if (saveRequested && result.IsCompleted)
+            {
+                beginSave(result);
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Home))
+            {
+                result = requestLoad();
+            }
+            if (loadRequested && result.IsCompleted)
+            {
+                beginLoad(result);
+            }
+            game.getKeyHandler().updateKeys(Keyboard.GetState()); // add some form of previous state
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
             // TODO: Add your update logic here
-
+            
             base.Update(gameTime);
         }
 
@@ -115,5 +138,126 @@ namespace FunGame
 
             base.Draw(gameTime);
         }
+
+        // might want to move all of this to a separate class
+
+        public IAsyncResult requestSave()
+        {
+            Console.WriteLine("Save requested");
+            saveRequested = true;
+            return StorageDevice.BeginShowSelector(PlayerIndex.One, null, null);
+        }
+
+        public IAsyncResult requestLoad()
+        {
+            Console.WriteLine("Load requested");
+            loadRequested = true;
+            return StorageDevice.BeginShowSelector(PlayerIndex.One, null, null);
+        }
+
+        public void beginSave(IAsyncResult result)
+        {
+            Console.WriteLine("Beginning save");
+            StorageDevice device = StorageDevice.EndShowSelector(result);
+            if (device != null && device.IsConnected)
+            {
+                saveGame(device);
+            }
+        }
+
+        public void beginLoad(IAsyncResult load)
+        {
+            Console.WriteLine("Beginning load");
+            StorageDevice device = StorageDevice.EndShowSelector(result);
+            if (device != null && device.IsConnected)
+            {
+                loadGame(device);
+            }
+        }
+
+        public void saveGame(StorageDevice device)
+        {
+            Console.WriteLine("Saving");
+            SaveGameData data = new SaveGameData();
+            data.currentPlayerZone = game.getZoneFactory().getCurrentZone().getZoneNumber();
+            data.currentPlayerLevel = 0;
+            data.playerPosition = new Vector2(100, 1000);
+
+            IAsyncResult result = device.BeginOpenContainer("Container", null, null);
+            result.AsyncWaitHandle.WaitOne();
+            StorageContainer container = device.EndOpenContainer(result);
+            result.AsyncWaitHandle.Close();
+
+            string filename = "savegame.sav";
+
+            if (container.FileExists(filename))
+            {
+                container.DeleteFile(filename);
+            }
+
+            Stream stream = container.CreateFile(filename);
+
+            XmlSerializer serializer = new XmlSerializer(typeof(SaveGameData));
+            serializer.Serialize(stream, data);
+
+            stream.Close();
+
+            container.Dispose();
+
+            saveRequested = false;
+            Console.WriteLine("save complete");
+        }
+
+        public void loadGame(StorageDevice device)
+        {
+            Console.WriteLine("loading");
+            IAsyncResult result = device.BeginOpenContainer("Container", null, null);
+            result.AsyncWaitHandle.WaitOne();
+            StorageContainer container = device.EndOpenContainer(result);
+            result.AsyncWaitHandle.Close();
+
+            string filename = "savegame.sav";
+
+            if (!container.FileExists(filename))
+            {
+                container.Dispose();
+                return;
+            }
+
+            Stream stream = container.OpenFile(filename, FileMode.Open);
+
+            XmlSerializer serializer = new XmlSerializer(typeof(SaveGameData));
+            SaveGameData data = (SaveGameData)serializer.Deserialize(stream);
+
+            stream.Close();
+
+            container.Dispose();
+
+
+            game.getZoneFactory().loadZones(data.currentPlayerZone);
+            game.getZoneFactory().setCurrentZoneFromNumber(data.currentPlayerZone);
+            game.getPlayer().setZoneLevel(data.currentPlayerLevel);
+            game.getPlayer().setGlobalLocation(data.playerPosition);
+            game.getKeyHandler().getMovementHandler().updateDrawLocations(game.getPlayer(), game.getZoneFactory().getCurrentZone());
+
+            Console.WriteLine("Zone number: " + data.currentPlayerZone);
+            Console.WriteLine("Player level: " + data.currentPlayerLevel);
+            Console.WriteLine("Position: " + data.playerPosition);
+
+            loadRequested = false;
+            Console.WriteLine("load completed");
+
+            game.getGameState().setGameState();
+        }
+
+        [Serializable]
+        public struct SaveGameData
+        {
+            public int currentPlayerZone;
+            public int currentPlayerLevel;
+            public Vector2 playerPosition;
+        }
+
+        
     }
 }
