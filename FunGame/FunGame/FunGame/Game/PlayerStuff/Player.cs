@@ -20,16 +20,20 @@ namespace FunGame.Game.PlayerStuff
         private Vector2 globalLocation;
         private Vector2 drawLocation;
 
+        private Vector2 size;
+        private Vector2 drawingSize;
+        private Vector2 centerFromGlobal;
+
         private int currentZoneLevel;
         private int moveSpeed;
         private int facingDirection;
 
-        private readonly int walkingOffset = 15;
-
         private bool isSwordOut;
         private int health;
+        private AttackRegions attackRegions;
 
         private List<Texture2D> activeAnimation;
+        private List<Texture2D> activeBorderAnimation;
         private AnimationPriorities animationPriorities;
         private int currentAnimationPriority;
         private int currentAnimationIndex;
@@ -40,13 +44,19 @@ namespace FunGame.Game.PlayerStuff
             globalLocation = new Vector2(0, 0);
             drawLocation = new Vector2(0, 0);
 
+            size = new Vector2(20, 20);
+            drawingSize = new Vector2(20, 30);
+            centerFromGlobal = new Vector2(10, 5);
+
             currentZoneLevel = 0;
             facingDirection = 0;
             moveSpeed = 4;
             isSwordOut = false;
             health = 100;
+            attackRegions = new AttackRegions();
 
             activeAnimation = new List<Texture2D>();
+            activeBorderAnimation = new List<Texture2D>();
             animationPriorities = new AnimationPriorities();
             currentAnimationPriority = -1;
             currentAnimationIndex = 0;
@@ -61,6 +71,21 @@ namespace FunGame.Game.PlayerStuff
         public void setGlobalLocation(Vector2 location)
         {
             globalLocation = location;
+        }
+
+        public Vector2 getSize()
+        {
+            return size;
+        }
+
+        public Vector2 getDrawingSize()
+        {
+            return drawingSize;
+        }
+
+        public Vector2 getCenterFromGlobal()
+        {
+            return centerFromGlobal;
         }
 
         public void moveUp(int distance)
@@ -133,34 +158,21 @@ namespace FunGame.Game.PlayerStuff
             facingDirection = direction;
         }
 
-        public int getWalkingOffset()
+        public AttackRegions getAttackRegions()
         {
-            return walkingOffset;
-        }
-
-        public int getYOffset()
-        {
-            return walkingOffset - 10;
-        }
-
-        public int getDrawOffsetY()
-        {
-            return 15;
-        }
-
-        public int getXOffset()
-        {
-            return 10;
+            return attackRegions;
         }
 
         public void swordOut()
         {
             isSwordOut = true;
+            moveSpeed = 2;
         }
 
         public void swordIn()
         {
             isSwordOut = false;
+            moveSpeed = 4;
         }
 
         public bool getSwordOut()
@@ -194,15 +206,27 @@ namespace FunGame.Game.PlayerStuff
             return activeAnimation;
         }
 
+        public List<Texture2D> getActiveBorderAnimation()
+        {
+            return activeBorderAnimation;
+        }
+
         public int getCurrentAnimationPriority()
         {
             return currentAnimationPriority;
         }
 
+        public void setNewBorderAnimation(List<Texture2D> animation, string name)
+        {
+            activeBorderAnimation = animation;
+        }
+
         public void setNewAnimation(List<Texture2D> animation, string name)
         {
+            //Console.WriteLine("new animation");
             animationFinished = false;
             activeAnimation = animation;
+            currentAnimationIndex = 0;
             currentAnimationPriority = animationPriorities.getPriority(name);
         }
 
@@ -215,9 +239,13 @@ namespace FunGame.Game.PlayerStuff
             else
             {
                 currentAnimationIndex = 0;
-                currentAnimationPriority = -1;
                 animationFinished = true;
             }
+        }
+
+        public void finishAnimation()
+        {
+            currentAnimationPriority = -1;
         }
 
         public int getAnimationIndex()

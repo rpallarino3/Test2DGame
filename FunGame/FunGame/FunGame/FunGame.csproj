@@ -100,6 +100,7 @@
     <Compile Include="Game\GameState.cs" />
     <Compile Include="Game\PaintHandlers\PaintHandler.cs" />
     <Compile Include="Game\PlayerStuff\AnimationPriorities.cs" />
+    <Compile Include="Game\PlayerStuff\AttackRegions.cs" />
     <Compile Include="Game\PlayerStuff\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

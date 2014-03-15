@@ -34,8 +34,8 @@ namespace FunGame.Game.KeyHandlers
 
         private void checkEnemySpawns(Player player, ZoneFactory zoneFactory)
         {
-            float playerCenterX = player.getGlobalLocation().X + 10;
-            float playerCenterY = player.getGlobalLocation().Y + 5;
+            float playerCenterX = player.getGlobalLocation().X + player.getCenterFromGlobal().X;
+            float playerCenterY = player.getGlobalLocation().Y + player.getCenterFromGlobal().Y;
 
             for (int i = 0; i < zoneFactory.getCurrentZone().getEnemySpawners().Count; i++)
             {
@@ -54,11 +54,11 @@ namespace FunGame.Game.KeyHandlers
         {
             int i = 0;
             Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y - player.getMoveSpeed());
-            for (int j = 0; j < player.getWalkingOffset(); j++)
+            for (int j = 0; j < player.getSize().X; j++)
             {
                 bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
                 bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
-                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
+                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j]; // you should be able to move onto enemies but just immediately take damage when you do
                 if (collision == false || npc == true || enemy == true)
                 {
                     if (i < player.getMoveSpeed())
@@ -88,7 +88,7 @@ namespace FunGame.Game.KeyHandlers
         {
             int i = 0;
             Vector2 startingCollision = new Vector2(player.getGlobalLocation().X - player.getMoveSpeed(), player.getGlobalLocation().Y);
-            for (int j = 0; j < player.getWalkingOffset(); j++)
+            for (int j = 0; j < player.getSize().Y; j++)
             {
                 bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
                 bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
@@ -121,8 +121,8 @@ namespace FunGame.Game.KeyHandlers
         private int checkDownCollision(Player player, Zone currentZone)
         {
             int i = 0;
-            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y + 14 + player.getMoveSpeed());
-            for (int j = 0; j < player.getWalkingOffset(); j++)
+            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y + 19 + player.getMoveSpeed());
+            for (int j = 0; j < player.getSize().X; j++)
             {
                 bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
                 bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
@@ -156,7 +156,7 @@ namespace FunGame.Game.KeyHandlers
         {
             int i = 0;
             Vector2 startingCollision = new Vector2(player.getGlobalLocation().X + 19 + player.getMoveSpeed(), player.getGlobalLocation().Y);
-            for (int j = 0; j < player.getWalkingOffset(); j++)
+            for (int j = 0; j < player.getSize().Y; j++)
             {
                 bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
                 bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
@@ -179,21 +179,21 @@ namespace FunGame.Game.KeyHandlers
         }
 
 
-        public void updateDrawLocations(Player player, Zone currentZone)
+        public void updateDrawLocations(Player player, Zone currentZone) // down too far by 5 pixels
         {
             float playerDrawLocationX;
             float playerDrawLocationY;
             float zoneDrawLocationX;
             float zoneDrawLocationY;
 
-            if (player.getGlobalLocation().X + player.getXOffset() >= 450 && player.getGlobalLocation().X + player.getXOffset() < currentZone.getWidth() - 450)
+            if (player.getGlobalLocation().X + player.getCenterFromGlobal().X >= 450 && player.getGlobalLocation().X + player.getCenterFromGlobal().X < currentZone.getWidth() - 450)
             {
-                playerDrawLocationX = 450 - player.getXOffset();
-                zoneDrawLocationX = -(player.getGlobalLocation().X + player.getXOffset()) + 450;
+                playerDrawLocationX = 450 - (int) player.getCenterFromGlobal().X;
+                zoneDrawLocationX = -(player.getGlobalLocation().X + player.getCenterFromGlobal().X) + 450;
             }
             else
             {
-                if (player.getGlobalLocation().X + player.getXOffset() < 450)
+                if (player.getGlobalLocation().X + player.getCenterFromGlobal().X < 450)
                 {
                     playerDrawLocationX = player.getGlobalLocation().X;
                     zoneDrawLocationX = 0;
@@ -205,27 +205,65 @@ namespace FunGame.Game.KeyHandlers
                 }
             }
 
-            if (player.getGlobalLocation().Y + player.getYOffset() >= 300 && player.getGlobalLocation().Y + player.getYOffset() < currentZone.getHeight() - 300) // add in the image height stuff
+            if (player.getGlobalLocation().Y + player.getCenterFromGlobal().Y >= 300 && player.getGlobalLocation().Y + player.getCenterFromGlobal().Y < currentZone.getHeight() - 300)
             {
-                playerDrawLocationY = 300 - player.getYOffset() - player.getDrawOffsetY();
-                zoneDrawLocationY = -(player.getGlobalLocation().Y + player.getYOffset()) + 300;
+                playerDrawLocationY = 300 - (player.getDrawingSize().Y - player.getSize().Y + player.getCenterFromGlobal().Y);
+                zoneDrawLocationY = -(player.getGlobalLocation().Y + player.getCenterFromGlobal().Y - 300);
             }
             else
             {
-                if (player.getGlobalLocation().Y + player.getYOffset() < 300)
+                if (player.getGlobalLocation().Y + player.getCenterFromGlobal().Y < 300)
                 {
-                    playerDrawLocationY = player.getGlobalLocation().Y - player.getDrawOffsetY();
+                    playerDrawLocationY = player.getGlobalLocation().Y - (player.getDrawingSize().Y - player.getSize().Y);
                     zoneDrawLocationY = 0;
                 }
                 else
                 {
-                    playerDrawLocationY = 600 - (currentZone.getHeight() - player.getGlobalLocation().Y + player.getDrawOffsetY());
+                    playerDrawLocationY = 600 - (currentZone.getHeight() - player.getGlobalLocation().Y - player.getSize().Y + player.getDrawingSize().Y);
                     zoneDrawLocationY = -currentZone.getHeight() + 600;
                 }
             }
 
             player.setDrawLocation(new Vector2(playerDrawLocationX, playerDrawLocationY));
             currentZone.setDrawLocation(new Vector2(zoneDrawLocationX, zoneDrawLocationY));
+        }
+
+        public void checkDamage(Player player, Zone currentZone)
+        {
+            Vector2 playerTopLeft = player.getGlobalLocation() - new Vector2(0, 10);
+
+            for (int i = 0; i < currentZone.getEnemies().Count; i++)
+            {
+                Enemy currentEnemy = currentZone.getEnemies()[i];
+                int width, height;
+
+                //Console.WriteLine("Player: " + player.getGlobalLocation());
+                Console.WriteLine("Enemy" + i + ": " + currentEnemy.getLocation());
+
+                if (playerTopLeft.X > currentEnemy.getLocation().X)
+                {
+                    width = (int) currentEnemy.getSize().X;
+                }
+                else
+                {
+                    width = 20;
+                }
+
+                if (playerTopLeft.Y > currentEnemy.getLocation().Y)
+                {
+                    height = (int)currentEnemy.getSize().Y;
+                }
+                else
+                {
+                    height = 30;
+                }
+
+                // needs to be tweaked a bit
+                if (Math.Abs(playerTopLeft.X - currentEnemy.getLocation().X) < width && Math.Abs(playerTopLeft.Y - (currentEnemy.getLocation().Y + currentEnemy.getWalkingSize().Y - currentEnemy.getSize().Y)) < height)
+                {
+                    Console.WriteLine("Damage");
+                }
+            }
         }
 
     }

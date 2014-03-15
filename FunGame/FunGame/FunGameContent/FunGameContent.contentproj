@@ -195,51 +195,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\Player\bigplayerdown.png">
-      <Name>bigplayerdown</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\bigplayerleft.png">
-      <Name>bigplayerleft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\bigplayerright.png">
-      <Name>bigplayerright</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\bigplayerup.png">
-      <Name>bigplayerup</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\playerdown.png">
-      <Name>playerdown</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\playerleft.png">
-      <Name>playerleft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\playerright.png">
-      <Name>playerright</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\playerup.png">
-      <Name>playerup</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\testplayer.png">
-      <Name>testplayer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\Zones\TestBattleZone.png">
@@ -261,35 +216,6 @@
     </Compile>
     <Compile Include="Images\Zones\TestGrassZoneFloor2.png">
       <Name>TestGrassZoneFloor2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\Player\sworddown.png">
-      <Name>sworddown</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\swordleft.png">
-      <Name>swordleft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\swordright.png">
-      <Name>swordright</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Images\Player\swordup.png">
-      <Name>swordup</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Images\Player\PlayerForward.png">
-      <Name>PlayerForward</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -366,6 +292,183 @@
     </Compile>
     <Compile Include="Images\Player\Walking\PlayerWalkRight2.png">
       <Name>PlayerWalkRight2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Player\SwingingSword\Down\SwingSwordDown1.png">
+      <Name>SwingSwordDown1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Down\SwingSwordDown2.png">
+      <Name>SwingSwordDown2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Down\SwingSwordDown3.png">
+      <Name>SwingSwordDown3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Down\SwingSwordDown4.png">
+      <Name>SwingSwordDown4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Left\SwingSwordLeft1.png">
+      <Name>SwingSwordLeft1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Left\SwingSwordLeft2.png">
+      <Name>SwingSwordLeft2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Left\SwingSwordLeft3.png">
+      <Name>SwingSwordLeft3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Left\SwingSwordLeft4.png">
+      <Name>SwingSwordLeft4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Right\SwingSwordRight1.png">
+      <Name>SwingSwordRight1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Right\SwingSwordRight2.png">
+      <Name>SwingSwordRight2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Right\SwingSwordRight3.png">
+      <Name>SwingSwordRight3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Right\SwingSwordRight4.png">
+      <Name>SwingSwordRight4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Up\SwingSwordUp1.png">
+      <Name>SwingSwordUp1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Up\SwingSwordUp2.png">
+      <Name>SwingSwordUp2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Up\SwingSwordUp3.png">
+      <Name>SwingSwordUp3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Up\SwingSwordUp4.png">
+      <Name>SwingSwordUp4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Player\SwingingSword\Down\SwordTipDown1.png">
+      <Name>SwordTipDown1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Down\SwordTipDown2.png">
+      <Name>SwordTipDown2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Down\SwordTipDown3.png">
+      <Name>SwordTipDown3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Down\SwordTipDown4.png">
+      <Name>SwordTipDown4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Player\SwingingSword\Left\SwordTipLeft1.png">
+      <Name>SwordTipLeft1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Left\SwordTipLeft2.png">
+      <Name>SwordTipLeft2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Left\SwordTipLeft3.png">
+      <Name>SwordTipLeft3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Left\SwordTipLeft4.png">
+      <Name>SwordTipLeft4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Player\SwingingSword\Right\SwordTipRight1.png">
+      <Name>SwordTipRight1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Right\SwordTipRight2.png">
+      <Name>SwordTipRight2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Right\SwordTipRight3.png">
+      <Name>SwordTipRight3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Right\SwordTipRight4.png">
+      <Name>SwordTipRight4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Player\SwingingSword\Up\SwordTipUp1.png">
+      <Name>SwordTipUp1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Up\SwordTipUp2.png">
+      <Name>SwordTipUp2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Up\SwordTipUp3.png">
+      <Name>SwordTipUp3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Images\Player\SwingingSword\Up\SwordTipUp4.png">
+      <Name>SwordTipUp4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Images\Player\PlainBorder.png">
+      <Name>PlainBorder</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -112,7 +112,8 @@ namespace FunGame
                 this.Exit();
 
             // TODO: Add your update logic here
-            
+            //Console.WriteLine("Update player global: " + game.getPlayer().getGlobalLocation());
+            //Console.WriteLine("Update player draw: " + game.getPlayer().getDrawLocation());
             base.Update(gameTime);
         }
 
@@ -130,8 +131,10 @@ namespace FunGame
             {
                 game.getPaintHandler().draw(spriteBatch);
             }
-            
 
+
+            //Console.WriteLine("Draw player global: " + game.getPlayer().getGlobalLocation());
+            //Console.WriteLine("Draw player draw: " + game.getPlayer().getDrawLocation());
 
 
             // TODO: Add your drawing code here

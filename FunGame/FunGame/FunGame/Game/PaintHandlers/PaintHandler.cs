@@ -39,7 +39,7 @@ namespace FunGame.Game.PaintHandlers
         private void drawZone(SpriteBatch sb)
         {
             float drawWindowTopX = gameInit.getPlayer().getGlobalLocation().X - gameInit.getPlayer().getDrawLocation().X;
-            float drawWindowTopY = gameInit.getPlayer().getGlobalLocation().Y - gameInit.getPlayer().getDrawLocation().Y - gameInit.getPlayer().getDrawOffsetY();
+            float drawWindowTopY = gameInit.getPlayer().getGlobalLocation().Y + gameInit.getPlayer().getSize().Y - gameInit.getPlayer().getDrawingSize().Y - gameInit.getPlayer().getDrawLocation().Y;
 
             for (int i = 0; i < currentZoneImages.Count; i++)
             {
@@ -50,13 +50,17 @@ namespace FunGame.Game.PaintHandlers
                     List<Vector2> globalPoints = new List<Vector2>();
                     List<Vector2> drawPoints = new List<Vector2>();
                     List<Texture2D> images = new List<Texture2D>();
-                    
+
+                    globalPoints.Add(gameInit.getPlayer().getGlobalLocation());
                     globalPoints.Add(gameInit.getPlayer().getGlobalLocation());
                     drawPoints.Add(gameInit.getPlayer().getDrawLocation());
+                    drawPoints.Add(gameInit.getPlayer().getDrawLocation() - new Vector2(10, 10));
                     //images.Add(gameInit.getContentHandler().getPlayerImages()[gameInit.getPlayer().getFacingDirection()]);
-                    Console.WriteLine("Animation Size: " + gameInit.getPlayer().getActiveAnimation().Count);
+                    //Console.WriteLine("Animation Size: " + gameInit.getPlayer().getActiveAnimation().Count);
+                    //Console.WriteLine("Animation Index: " + gameInit.getPlayer().getAnimationIndex());
                     images.Add(gameInit.getPlayer().getActiveAnimation()[gameInit.getPlayer().getAnimationIndex()]);
-
+                    images.Add(gameInit.getPlayer().getActiveBorderAnimation()[gameInit.getPlayer().getAnimationIndex()]);
+                    
                     List<NPC> npcs = gameInit.getZoneFactory().getCurrentZone().getNPCs();
 
                     for (int j = 0; j < npcs.Count; j++)
@@ -241,25 +245,6 @@ namespace FunGame.Game.PaintHandlers
         private void drawPlayer(SpriteBatch sb)
         {
             sb.Draw(gameInit.getContentHandler().getPlayerImages()[gameInit.getPlayer().getFacingDirection()], gameInit.getPlayer().getDrawLocation(), Color.White);
-            if (gameInit.getPlayer().getSwordOut())
-            {
-                if (gameInit.getPlayer().getFacingDirection() == gameInit.getPlayer().UP)
-                {
-                    sb.Draw(gameInit.getContentHandler().getSwordImages()[0], gameInit.getPlayer().getDrawLocation() + new Vector2(8, -20), Color.White);
-                }
-                else if (gameInit.getPlayer().getFacingDirection() == gameInit.getPlayer().DOWN)
-                {
-                    sb.Draw(gameInit.getContentHandler().getSwordImages()[1], gameInit.getPlayer().getDrawLocation() + new Vector2(8, 40), Color.White);
-                }
-                else if (gameInit.getPlayer().getFacingDirection() == gameInit.getPlayer().RIGHT)
-                {
-                    sb.Draw(gameInit.getContentHandler().getSwordImages()[2], gameInit.getPlayer().getDrawLocation() + new Vector2(25, 25), Color.White);
-                }
-                else
-                {
-                    sb.Draw(gameInit.getContentHandler().getSwordImages()[3], gameInit.getPlayer().getDrawLocation() + new Vector2(-25, 25), Color.White);
-                }
-            }
         }
 
         public void updateZoneImages(List<Texture2D> newImages)

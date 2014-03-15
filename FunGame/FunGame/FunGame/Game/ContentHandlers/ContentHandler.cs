@@ -58,11 +58,6 @@ namespace FunGame.Game.ContentHandlers
         private void loadPlayerContent()
         {
             playerContentHandler.loadContent();
-
-            swordImages.Add(content.Load<Texture2D>("Images/Player/swordup"));
-            swordImages.Add(content.Load<Texture2D>("Images/Player/sworddown"));
-            swordImages.Add(content.Load<Texture2D>("Images/Player/swordright"));
-            swordImages.Add(content.Load<Texture2D>("Images/Player/swordleft"));
         }
 
         private void loadZoneContent()
