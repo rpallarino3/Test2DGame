@@ -4,34 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FunGame.Game.NPCStuff;
-using FunGame.Game.EnemyStuff;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
+using FunGame.Game.ContentHandlers;
 
 namespace FunGame.Game.Environment
 {
     abstract class Zone
     {
 
+        protected readonly int TILE_SIZE = 30;
+
+        protected int tileHeight;
+        protected int tileWidth;
         protected int width;
         protected int height;
         protected int zoneNumber;
-        protected List<Texture2D> levels;
-        protected List<CollisionMap> collisionMap;
-        protected List<TransitionMap> transitionMap;
         protected List<Zone> transitionZones; // maybe combine these 2
         protected List<Vector2> transitionPoints;
-        protected List<TrafficMap> trafficMap;
         protected List<NPC> npcList;
-        protected List<Enemy> enemyList;
-        protected List<EnemySpawner> spawnerList;
-        protected List<EnemyMap> enemyMap;
         protected Vector2 drawLocation;
+        protected ZoneTileMap zoneTileMap;
+        protected List<ManipulatableObject> objectList;
 
-        public List<Texture2D> getLevels()
+
+        public int getTileWidth()
         {
-            return levels;
+            return tileWidth;
+        }
+
+        public int getTileHeight()
+        {
+            return tileHeight;
         }
 
         public int getWidth()
@@ -42,16 +48,6 @@ namespace FunGame.Game.Environment
         public int getHeight()
         {
             return height;
-        }
-
-        public List<CollisionMap> getCollisionMap()
-        {
-            return collisionMap;
-        }
-
-        public List<TransitionMap> getTransitionMap()
-        {
-            return transitionMap;
         }
 
         public int getZoneNumber()
@@ -69,29 +65,9 @@ namespace FunGame.Game.Environment
             return transitionPoints;
         }
 
-        public List<TrafficMap> getTrafficMap()
-        {
-            return trafficMap;
-        }
-
-        public List<EnemySpawner> getEnemySpawners()
-        {
-            return spawnerList;
-        }
-
-        public List<EnemyMap> getEnemyMap()
-        {
-            return enemyMap;
-        }
-
         public List<NPC> getNPCs()
         {
             return npcList;
-        }
-
-        public List<Enemy> getEnemies()
-        {
-            return enemyList;
         }
 
         public void addNPCtoList(NPC npc)
@@ -104,6 +80,16 @@ namespace FunGame.Game.Environment
             npcList.Remove(npc);
         }
 
+        public ZoneTileMap getZoneTileMap()
+        {
+            return zoneTileMap;
+        }
+
+        public List<ManipulatableObject> getObjectList()
+        {
+            return objectList;
+        }
+
         public Vector2 getDrawLocation()
         {
             return drawLocation;
@@ -114,20 +100,36 @@ namespace FunGame.Game.Environment
             drawLocation = location;
         }
 
-        public void clearEnemies()
+        public void setStationaryImages(ContentHandler content)
         {
-            for (int i = 0; i < enemyList.Count; i++)
+            for (int i = 0; i < objectList.Count; i++)
             {
-                Enemy currentEnemy = enemyList[i];
-                int level = currentEnemy.getCurrentZoneLevel();
-
-                enemyMap[level].removeEnemy(currentEnemy);
+                objectList[i].activate(content, this, "STATIONARY");
             }
-            enemyList.Clear();
+        }
 
-            for (int i = 0; i < spawnerList.Count; i++)
+        public void setStationaryNPCImages(ContentHandler content)
+        {
+            for (int i = 0; i < npcList.Count; i++)
             {
-                spawnerList[i].resetSpawnNumber();
+                int direction = npcList[i].getFacingDirection();
+
+                if (direction == 0)
+                {
+                    npcList[i].setNewAnimation(content.getNPCContentHandler().getNPCImages()[npcList[i].getName()]["STATIONARY_UP"]);
+                }
+                else if (direction == 1)
+                {
+                    npcList[i].setNewAnimation(content.getNPCContentHandler().getNPCImages()[npcList[i].getName()]["STATIONARY_DOWN"]);
+                }
+                else if (direction == 2)
+                {
+                    npcList[i].setNewAnimation(content.getNPCContentHandler().getNPCImages()[npcList[i].getName()]["STATIONARY_RIGHT"]);
+                }
+                else if (direction == 3)
+                {
+                    npcList[i].setNewAnimation(content.getNPCContentHandler().getNPCImages()[npcList[i].getName()]["STATIONARY_LEFT"]);
+                }
             }
         }
     }

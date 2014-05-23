@@ -89,31 +89,43 @@ namespace FunGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //Console.WriteLine(game.getPlayer().getGlobalLocation());
-            if (Keyboard.GetState().IsKeyDown(Keys.Delete))
+            
+            if (game.getGameState().getState() == 0)
             {
-                //result = requestSave();
+                if (Keyboard.GetState().IsKeyDown(Keys.Delete))
+                {
+                    result = requestSave();
+                }
+                if (saveRequested && result.IsCompleted)
+                {
+                    beginSave(result);
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.Home))
+                {
+                    result = requestLoad();
+                }
+                if (loadRequested && result.IsCompleted)
+                {
+                    beginLoad(result);
+                }
             }
-            if (saveRequested && result.IsCompleted)
+            else if (game.getGameState().getState() == 1)
             {
-                beginSave(result);
+                game.getKeyHandler().updateKeys(Keyboard.GetState());// add some form of previous state
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Home))
+            else if (game.getGameState().getState() == 2)
             {
-                result = requestLoad();
+                game.getInventoryKeyHandler().updateKeys(Keyboard.GetState());
             }
-            if (loadRequested && result.IsCompleted)
+            else if (game.getGameState().getState() == 3)
             {
-                beginLoad(result);
+                game.getChatKeyHandler().updateKeys(Keyboard.GetState());
             }
-            game.getKeyHandler().updateKeys(Keyboard.GetState()); // add some form of previous state
+            
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
-            //Console.WriteLine("Update player global: " + game.getPlayer().getGlobalLocation());
-            //Console.WriteLine("Update player draw: " + game.getPlayer().getDrawLocation());
             base.Update(gameTime);
         }
 
@@ -127,9 +139,17 @@ namespace FunGame
             {
                 GraphicsDevice.Clear(Color.CornflowerBlue);
             }
-            else
+            else if (game.getGameState().getState() == 1)
             {
-                game.getPaintHandler().draw(spriteBatch);
+                game.getPaintHandler().draw(spriteBatch, Color.White);
+            }
+            else if (game.getGameState().getState() == 2)
+            {
+                game.getInventoryPaintHandler().draw(spriteBatch);
+            }
+            else if (game.getGameState().getState() == 3)
+            {
+                game.getChatPaintHandler().draw(spriteBatch);
             }
 
 
@@ -182,9 +202,15 @@ namespace FunGame
         {
             Console.WriteLine("Saving");
             SaveGameData data = new SaveGameData();
-            data.currentPlayerZone = game.getZoneFactory().getCurrentZone().getZoneNumber();
+            data.currentPlayerZone = -4;
             data.currentPlayerLevel = 0;
-            data.playerPosition = new Vector2(100, 1000);
+            data.playerPosition = new Vector2(400, 600);
+            data.fireEnergy = 9999;
+            data.waterEnergy = 9999;
+            data.natureEnergy = 9999;
+            data.currentFireEnergy = 100;
+            data.currentWaterEnergy = 9375;
+            data.currentNatureEnergy = 9;
 
             IAsyncResult result = device.BeginOpenContainer("Container", null, null);
             result.AsyncWaitHandle.WaitOne();
@@ -237,11 +263,17 @@ namespace FunGame
             container.Dispose();
 
 
-            game.getZoneFactory().loadZones(data.currentPlayerZone);
+            game.getZoneFactory().loadZones(game.getContentHandler(), data.currentPlayerZone);
             game.getZoneFactory().setCurrentZoneFromNumber(data.currentPlayerZone);
             game.getPlayer().setZoneLevel(data.currentPlayerLevel);
             game.getPlayer().setGlobalLocation(data.playerPosition);
             game.getKeyHandler().getMovementHandler().updateDrawLocations(game.getPlayer(), game.getZoneFactory().getCurrentZone());
+            game.getPlayer().getStats().setFireEnergy(data.fireEnergy);
+            game.getPlayer().getStats().setCurrentFireEnergy(data.currentFireEnergy);
+            game.getPlayer().getStats().setWaterEnergy(data.waterEnergy);
+            game.getPlayer().getStats().setCurrentWaterEnergy(data.currentWaterEnergy);
+            game.getPlayer().getStats().setNatureEnergy(data.natureEnergy);
+            game.getPlayer().getStats().setCurrentNatureEnergy(data.currentNatureEnergy);
 
             Console.WriteLine("Zone number: " + data.currentPlayerZone);
             Console.WriteLine("Player level: " + data.currentPlayerLevel);
@@ -251,6 +283,7 @@ namespace FunGame
             Console.WriteLine("load completed");
 
             game.getGameState().setGameState();
+            game.getKeyHandler().updateKeys(Keyboard.GetState());
         }
 
         [Serializable]
@@ -259,6 +292,14 @@ namespace FunGame
             public int currentPlayerZone;
             public int currentPlayerLevel;
             public Vector2 playerPosition;
+
+            public int fireEnergy;
+            public int natureEnergy;
+            public int waterEnergy;
+
+            public int currentFireEnergy;
+            public int currentNatureEnergy;
+            public int currentWaterEnergy;
         }
 
         

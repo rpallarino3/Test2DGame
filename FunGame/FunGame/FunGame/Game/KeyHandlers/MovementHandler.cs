@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using FunGame.Game.PlayerStuff;
 using FunGame.Game.Environment;
-using FunGame.Game.EnemyStuff;
 
 using Microsoft.Xna.Framework;
 
@@ -18,168 +17,507 @@ namespace FunGame.Game.KeyHandlers
         private GameInit gameInit;
         private TransitionHandler transitionHandler;
 
+        private int upDistance;
+        private int downDistance;
+        private int rightDistance;
+        private int leftDistance;
+
+        private bool leftFlag;
+        private bool rightFlag;
+        private bool upFlag;
+        private bool downFlag;
+
+        private bool bump;
+
         public MovementHandler(GameInit gameInit)
         {
             this.gameInit = gameInit;
             transitionHandler = new TransitionHandler(gameInit);
+            bump = false;
+
+            upDistance = 0;
+            downDistance = 0;
+            rightDistance = 0;
+            leftDistance = 0;
+
+            leftFlag = false;
+            rightFlag = false;
+            upFlag = false;
+            downFlag = false;
         }
 
-        public void movePlayerUp(Player player, ZoneFactory zoneFactory)
+        public void resetDistances()
         {
-            player.moveUp(checkUpCollision(player, zoneFactory.getCurrentZone()));
-            updateDrawLocations(player, zoneFactory.getCurrentZone());
-            checkEnemySpawns(player, zoneFactory);
-            transitionHandler.checkTransitions(player, zoneFactory); //transitions need to be fixed
+            upDistance = 0;
+            downDistance = 0;
+            rightDistance = 0;
+            leftDistance = 0;
         }
 
-        private void checkEnemySpawns(Player player, ZoneFactory zoneFactory)
+        public void resetFlags()
         {
-            float playerCenterX = player.getGlobalLocation().X + player.getCenterFromGlobal().X;
-            float playerCenterY = player.getGlobalLocation().Y + player.getCenterFromGlobal().Y;
+            upFlag = false;
+            downFlag = false;
+            rightFlag = false;
+            leftFlag = false;
+        }
 
-            for (int i = 0; i < zoneFactory.getCurrentZone().getEnemySpawners().Count; i++)
+        public bool pushTest() // an issue with this that may or may not need fixing, you can push while sliding by removing embedded ifs
+        {
+            if (upDistance == 0 && gameInit.getPlayer().getFacingDirection() == 0 && upFlag)
             {
-                EnemySpawner currentSpawner = zoneFactory.getCurrentZone().getEnemySpawners()[i];
-                double xDist = Math.Pow(playerCenterX - (currentSpawner.getLocation().X + currentSpawner.getWidth() / 2), 2);
-                double yDist = Math.Pow(playerCenterY - (currentSpawner.getLocation().Y + currentSpawner.getHeight() / 2), 2);
-
-                if (Math.Sqrt(xDist + yDist) <= currentSpawner.getSpawnThreshold())
+                if (!leftFlag && !rightFlag)
                 {
-                    currentSpawner.spawnEnemy("Goblin", zoneFactory.getCurrentZone(), player.getCurrentZoneLevel());
+                    return true;
                 }
             }
-        }
-
-        private int checkUpCollision(Player player, Zone currentZone)
-        {
-            int i = 0;
-            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y - player.getMoveSpeed());
-            for (int j = 0; j < player.getSize().X; j++)
+            if (downDistance == 0 && gameInit.getPlayer().getFacingDirection() == 1 && downFlag)
             {
-                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
-                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
-                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j]; // you should be able to move onto enemies but just immediately take damage when you do
-                if (collision == false || npc == true || enemy == true)
+                if (!leftFlag && !rightFlag)
                 {
-                    if (i < player.getMoveSpeed())
-                    {
-                        startingCollision.Y++;
-                        i++;
-                        j = 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return true;
                 }
             }
-            return player.getMoveSpeed() - i;
+            if (rightDistance == 0 && gameInit.getPlayer().getFacingDirection() == 2 && rightFlag)
+            {
+                if (!upFlag && !downFlag)
+                {
+                    return true;
+                }
+            }
+            if (leftDistance == 0 && gameInit.getPlayer().getFacingDirection() == 3 && leftFlag)
+            {
+                if (!upFlag && !downFlag)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
-        public void movePlayerLeft(Player player, ZoneFactory zoneFactory)
+        public void movePlayer(int direction, Player player, ZoneFactory zoneFactory)
         {
-            player.moveLeft(checkLeftCollision(player, zoneFactory.getCurrentZone()));
+            if (direction == 0)
+            {
+                upFlag = true;
+                player.moveUp(checkCollision(player.getMoveSpeed(), direction, player, zoneFactory.getCurrentZone()));
+            }
+            else if (direction == 1)
+            {
+                downFlag = true;
+                player.moveDown(checkCollision(player.getMoveSpeed(), direction, player, zoneFactory.getCurrentZone()));
+            }
+            else if (direction == 2)
+            {
+                rightFlag = true;
+                player.moveRight(checkCollision(player.getMoveSpeed(), direction, player, zoneFactory.getCurrentZone()));
+            }
+            else if (direction == 3)
+            {
+                leftFlag = true;
+                player.moveLeft(checkCollision(player.getMoveSpeed(), direction, player, zoneFactory.getCurrentZone()));
+            }
             updateDrawLocations(player, zoneFactory.getCurrentZone());
-            checkEnemySpawns(player, zoneFactory);
             transitionHandler.checkTransitions(player, zoneFactory);
         }
 
-        private int checkLeftCollision(Player player, Zone currentZone)
+        private int checkCollision(int distance, int direction, Player player, Zone currentZone)
         {
-            int i = 0;
-            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X - player.getMoveSpeed(), player.getGlobalLocation().Y);
-            for (int j = 0; j < player.getSize().Y; j++)
+            Vector2 startingPoint;
+
+            if (direction == 0)
             {
-                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
-                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
-                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
-                if (collision == false || npc == true || enemy == true)
+                startingPoint = player.getGlobalLocation();
+
+                int i = 0;
+                
+                while (i <= distance)
                 {
-                    if (i < player.getMoveSpeed())
+                    i += 2;
+
+                    if (!bump)
                     {
-                        startingCollision.X++;
-                        i++;
-                        j = 0;
+                        int leftCol = 0;
+                        int centerCol = 0;
+                        int rightCol = 0;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X + j) / 30;
+                            int yTile = ((int)startingPoint.Y - i) / 30;
+
+                            if ((int)startingPoint.Y - i < 0)
+                            {
+                                upDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X + j) % 30;
+                            int yOffset = ((int)startingPoint.Y - i) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                if (j < 14)
+                                {
+                                    leftCol++;
+                                }
+                                else if (j >= 16)
+                                {
+                                    rightCol++;
+                                }
+                                else
+                                {
+                                    centerCol++;
+                                }
+                            }
+                        }
+
+                        if (leftCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveRight(checkCollision(2, 2, player, currentZone));
+                            upDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (rightCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveLeft(checkCollision(2, 3, player, currentZone));
+                            upDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (centerCol > 0)
+                        {
+                            upDistance += (i - 2);
+                            return i - 2;
+                        }
                     }
                     else
                     {
-                        return 0;
+                        bump = false;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X + j) / 30;
+                            int yTile = ((int)startingPoint.Y - i) / 30;
+
+                            if ((int)startingPoint.Y - i < 0)
+                            {
+                                upDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X + j) % 30;
+                            int yOffset = ((int)startingPoint.Y - i) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                upDistance += (i - 2);
+                                return i - 2;
+                            }
+                        }
                     }
+
                 }
+                upDistance += (i - 2);
+                return i - 2;
             }
-            return player.getMoveSpeed() - i;
-        }
-
-        public void movePlayerDown(Player player, ZoneFactory zoneFactory)
-        {
-            player.moveDown(checkDownCollision(player, zoneFactory.getCurrentZone()));
-            updateDrawLocations(player, zoneFactory.getCurrentZone());
-            checkEnemySpawns(player, zoneFactory);
-            transitionHandler.checkTransitions(player, zoneFactory);
-        }
-
-        private int checkDownCollision(Player player, Zone currentZone)
-        {
-            int i = 0;
-            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X, player.getGlobalLocation().Y + 19 + player.getMoveSpeed());
-            for (int j = 0; j < player.getSize().X; j++)
+            else if (direction == 1)
             {
-                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
-                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
-                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y, (int)startingCollision.X + j];
-                if (collision == false || npc == true || enemy == true)
+                startingPoint = player.getGlobalLocation() + new Vector2(0, 29);
+
+                int i = 0;
+
+                while (i <= distance)
                 {
-                    if (i < player.getMoveSpeed())
+                    i += 2;
+
+                    if (!bump)
                     {
-                        startingCollision.Y--;
-                        i++;
-                        j = 0;
+                        int leftCol = 0;
+                        int centerCol = 0;
+                        int rightCol = 0;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X + j) / 30;
+                            int yTile = ((int)startingPoint.Y + i) / 30;
+
+                            if ((int)startingPoint.Y + i >= currentZone.getHeight())
+                            {
+                                downDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X + j) % 30;
+                            int yOffset = ((int)startingPoint.Y + i) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                if (j < 14)
+                                {
+                                    leftCol++;
+                                }
+                                else if (j >= 16)
+                                {
+                                    rightCol++;
+                                }
+                                else
+                                {
+                                    centerCol++;
+                                }
+                            }
+                        }
+
+                        if (leftCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveRight(checkCollision(2, 2, player, currentZone));
+                            downDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (rightCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveLeft(checkCollision(2, 3, player, currentZone));
+                            downDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (centerCol > 0)
+                        {
+                            downDistance += (i - 2);
+                            return i - 2;
+                        }
                     }
                     else
                     {
-                        return 0;
+                        bump = false;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X + j) / 30;
+                            int yTile = ((int)startingPoint.Y + i) / 30;
+
+                            if ((int)startingPoint.Y + i >= currentZone.getHeight())
+                            {
+                                downDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X + j) % 30;
+                            int yOffset = ((int)startingPoint.Y + i) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                downDistance += (i - 2);
+                                return i - 2;
+                            }
+                        }
                     }
+
                 }
+                downDistance += (i - 2);
+                return i - 2;
             }
-            return player.getMoveSpeed() - i;
-        }
-
-        public void movePlayerRight(Player player, ZoneFactory zoneFactory)
-        {
-            player.moveRight(checkRightCollision(player, zoneFactory.getCurrentZone()));
-            updateDrawLocations(player, zoneFactory.getCurrentZone());
-            checkEnemySpawns(player, zoneFactory);
-            transitionHandler.checkTransitions(player, zoneFactory);
-        }
-
-        private int checkRightCollision(Player player, Zone currentZone)
-        {
-            int i = 0;
-            Vector2 startingCollision = new Vector2(player.getGlobalLocation().X + 19 + player.getMoveSpeed(), player.getGlobalLocation().Y);
-            for (int j = 0; j < player.getSize().Y; j++)
+            else if (direction == 2)
             {
-                bool collision = currentZone.getCollisionMap()[player.getCurrentZoneLevel()].getCollisionMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
-                bool npc = currentZone.getTrafficMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
-                bool enemy = currentZone.getEnemyMap()[player.getCurrentZoneLevel()].getTrafficMap()[(int)startingCollision.Y + j, (int)startingCollision.X];
-                if (collision == false || npc == true || enemy == true)
+                startingPoint = player.getGlobalLocation() + new Vector2(29, 0);
+
+                int i = 0;
+
+                while (i <= distance)
                 {
-                    if (i < player.getMoveSpeed())
+                    i += 2;
+
+                    if (!bump)
                     {
-                        startingCollision.X--;
-                        i++;
-                        j = 0;
+                        int upCol = 0;
+                        int centerCol = 0;
+                        int downCol = 0;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X + i) / 30;
+                            int yTile = ((int)startingPoint.Y + j) / 30;
+
+                            if ((int)startingPoint.X + i >= currentZone.getWidth())
+                            {
+                                rightDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X + i) % 30;
+                            int yOffset = ((int)startingPoint.Y + j) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                if (j < 14)
+                                {
+                                    upCol++;
+                                }
+                                else if (j >= 16)
+                                {
+                                    downCol++;
+                                }
+                                else
+                                {
+                                    centerCol++;
+                                }
+                            }
+                        }
+
+                        if (upCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveDown(checkCollision(2, 1, player, currentZone));
+                            rightDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (downCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveUp(checkCollision(2, 0, player, currentZone));
+                            rightDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (centerCol > 0)
+                        {
+                            rightDistance += (i - 2);
+                            return i - 2;
+                        }
                     }
                     else
                     {
-                        return 0;
+                        bump = false;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X + i) / 30;
+                            int yTile = ((int)startingPoint.Y + j) / 30;
+
+                            if ((int)startingPoint.X + i >= currentZone.getWidth())
+                            {
+                                rightDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X + i) % 30;
+                            int yOffset = ((int)startingPoint.Y + j) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                rightDistance += (i - 2);
+                                return i - 2;
+                            }
+                        }
                     }
+
                 }
+                rightDistance += (i - 2);
+                return i - 2;
             }
-            return player.getMoveSpeed() - i;
+            else if (direction == 3)
+            {
+                startingPoint = player.getGlobalLocation();
+
+                int i = 0;
+
+                while (i <= distance)
+                {
+                    i += 2;
+
+                    if (!bump)
+                    {
+                        int upCol = 0;
+                        int centerCol = 0;
+                        int downCol = 0;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X - i) / 30;
+                            int yTile = ((int)startingPoint.Y + j) / 30;
+
+                            if ((int)startingPoint.X - i < 0)
+                            {
+                                leftDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X - i) % 30;
+                            int yOffset = ((int)startingPoint.Y + j) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                if (j < 14)
+                                {
+                                    upCol++;
+                                }
+                                else if (j >= 16)
+                                {
+                                    downCol++;
+                                }
+                                else
+                                {
+                                    centerCol++;
+                                }
+                            }
+                        }
+
+                        if (upCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveDown(checkCollision(2, 1, player, currentZone));
+                            leftDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (downCol > 0 && centerCol == 0)
+                        {
+                            bump = true;
+                            player.moveUp(checkCollision(2, 0, player, currentZone));
+                            leftDistance += (i - 2);
+                            return i - 2;
+                        }
+                        else if (centerCol > 0)
+                        {
+                            leftDistance += (i - 2);
+                            return i - 2;
+                        }
+                    }
+                    else
+                    {
+                        bump = false;
+
+                        for (int j = 0; j < (int)player.getSize().Y; j += 2)
+                        {
+                            int xTile = ((int)startingPoint.X - i) / 30;
+                            int yTile = ((int)startingPoint.Y + j) / 30;
+
+                            if ((int)startingPoint.X - i < 0)
+                            {
+                                leftDistance += (i - 2);
+                                return i - 2;
+                            }
+
+                            int xOffset = ((int)startingPoint.X - i) % 30;
+                            int yOffset = ((int)startingPoint.Y + j) % 30;
+
+                            if (currentZone.getZoneTileMap().getTile(yTile, xTile, player.getCurrentZoneLevel()).checkPixel(yOffset, xOffset) == 1)
+                            {
+                                leftDistance += (i - 2);
+                                return i - 2;
+                            }
+                        }
+                    }
+
+                }
+                leftDistance += (i - 2);
+                return i - 2;
+            }
+
+            return 0;
         }
 
-
-        public void updateDrawLocations(Player player, Zone currentZone) // down too far by 5 pixels
+        public void updateDrawLocations(Player player, Zone currentZone)
         {
             float playerDrawLocationX;
             float playerDrawLocationY;
@@ -228,42 +566,9 @@ namespace FunGame.Game.KeyHandlers
             currentZone.setDrawLocation(new Vector2(zoneDrawLocationX, zoneDrawLocationY));
         }
 
-        public void checkDamage(Player player, Zone currentZone)
+        public TransitionHandler getTransitionHandler()
         {
-            Vector2 playerTopLeft = player.getGlobalLocation() - new Vector2(0, 10);
-
-            for (int i = 0; i < currentZone.getEnemies().Count; i++)
-            {
-                Enemy currentEnemy = currentZone.getEnemies()[i];
-                int width, height;
-
-                //Console.WriteLine("Player: " + player.getGlobalLocation());
-                Console.WriteLine("Enemy" + i + ": " + currentEnemy.getLocation());
-
-                if (playerTopLeft.X > currentEnemy.getLocation().X)
-                {
-                    width = (int) currentEnemy.getSize().X;
-                }
-                else
-                {
-                    width = 20;
-                }
-
-                if (playerTopLeft.Y > currentEnemy.getLocation().Y)
-                {
-                    height = (int)currentEnemy.getSize().Y;
-                }
-                else
-                {
-                    height = 30;
-                }
-
-                // needs to be tweaked a bit
-                if (Math.Abs(playerTopLeft.X - currentEnemy.getLocation().X) < width && Math.Abs(playerTopLeft.Y - (currentEnemy.getLocation().Y + currentEnemy.getWalkingSize().Y - currentEnemy.getSize().Y)) < height)
-                {
-                    Console.WriteLine("Damage");
-                }
-            }
+            return transitionHandler;
         }
 
     }

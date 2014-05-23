@@ -11,6 +11,8 @@ namespace FunGame.Game
 
         private readonly int START_MENU = 0;
         private readonly int GAME_STATE = 1;
+        private readonly int INVENTORY = 2;
+        private readonly int NPC_CHAT = 3;
 
         private int state;
 
@@ -32,6 +34,16 @@ namespace FunGame.Game
         public void setGameState()
         {
             state = GAME_STATE;
+        }
+
+        public void setInventoryState()
+        {
+            state = INVENTORY;
+        }
+
+        public void setChatState()
+        {
+            state = NPC_CHAT;
         }
     }
 }

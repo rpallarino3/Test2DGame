@@ -23,8 +23,12 @@ namespace FunGame.Game
 
         private GameState gameState;
         private PaintHandler paintHandler;
+        private InventoryPaintHandler inventoryPaintHandler;
         private ContentHandler contentHandler;
         private KeyHandler keyHandler;
+        private InventoryKeyHandler inventoryKeyHandler;
+        private ChatPaintHandler chatPaintHandler;
+        private ChatKeyHandler chatKeyHandler;
 
         private Player player;
         private ZoneFactory zoneFactory;
@@ -36,7 +40,11 @@ namespace FunGame.Game
             player = new Player();
             contentHandler = new ContentHandler(content);
             paintHandler = new PaintHandler(this);
+            inventoryPaintHandler = new InventoryPaintHandler(this);
             keyHandler = new KeyHandler(this);
+            inventoryKeyHandler = new InventoryKeyHandler(this);
+            chatPaintHandler = new ChatPaintHandler(this);
+            chatKeyHandler = new ChatKeyHandler(this);
             gameState = new GameState();
             zoneFactory = new ZoneFactory();
         }
@@ -44,6 +52,16 @@ namespace FunGame.Game
         public PaintHandler getPaintHandler()
         {
             return paintHandler;
+        }
+
+        public InventoryPaintHandler getInventoryPaintHandler()
+        {
+            return inventoryPaintHandler;
+        }
+
+        public ChatPaintHandler getChatPaintHandler()
+        {
+            return chatPaintHandler;
         }
 
         public GameState getGameState()
@@ -59,6 +77,16 @@ namespace FunGame.Game
         public KeyHandler getKeyHandler()
         {
             return keyHandler;
+        }
+
+        public InventoryKeyHandler getInventoryKeyHandler()
+        {
+            return inventoryKeyHandler;
+        }
+
+        public ChatKeyHandler getChatKeyHandler()
+        {
+            return chatKeyHandler;
         }
 
         public ZoneFactory getZoneFactory()

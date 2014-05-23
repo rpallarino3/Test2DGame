@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using FunGame.Game.Environment.TestEnvironment;
+using FunGame.Game.ContentHandlers;
 
 
 namespace FunGame.Game.Environment
@@ -28,11 +29,11 @@ namespace FunGame.Game.Environment
             return currentZone;
         }
 
-        public void loadZones(int zoneNumber)
+        public void loadZones(ContentHandler content, int zoneNumber)
         {
             if (zoneNumber < 0)
             {
-                testZoneFactory.loadZones();
+                testZoneFactory.loadZones(content);
             }
         }
 
@@ -51,14 +52,8 @@ namespace FunGame.Game.Environment
             currentZoneNumber = zoneNumber;
             switch (zoneNumber)
             {
-                case -1:
-                    currentZone = testZoneFactory.getTestZone();
-                    break;
-                case -2:
-                    currentZone = testZoneFactory.getTestCave();
-                    break;
-                case -3:
-                    currentZone = testZoneFactory.getTestBattleZone();
+                case -4:
+                    currentZone = testZoneFactory.getTestTileZone();
                     break;
                 default:
                     break;

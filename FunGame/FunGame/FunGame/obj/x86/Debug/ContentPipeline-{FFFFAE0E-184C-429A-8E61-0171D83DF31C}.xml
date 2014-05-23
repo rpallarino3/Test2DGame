@@ -2,283 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Images\Menus\LoadMenu\Animation\LoadMenuAnimation1.png</Source>
-      <Name>Images\Menus\LoadMenu\Animation\LoadMenuAnimation1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\LoadMenu\Animation\LoadMenuAnimation1.xnb</Output>
-      <Time>2014-03-02T01:23:13.7243825-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\LoadMenu\Animation\LoadMenuAnimation2.png</Source>
-      <Name>Images\Menus\LoadMenu\Animation\LoadMenuAnimation2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\LoadMenu\Animation\LoadMenuAnimation2.xnb</Output>
-      <Time>2014-03-02T01:23:13.7253826-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\LoadMenu\Animation\LoadMenuAnimation3.png</Source>
-      <Name>Images\Menus\LoadMenu\Animation\LoadMenuAnimation3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\LoadMenu\Animation\LoadMenuAnimation3.xnb</Output>
-      <Time>2014-03-02T01:23:13.7543842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\LoadMenu\Animation\LoadMenuAnimation4.png</Source>
-      <Name>Images\Menus\LoadMenu\Animation\LoadMenuAnimation4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\LoadMenu\Animation\LoadMenuAnimation4.xnb</Output>
-      <Time>2014-03-02T01:23:13.7563843-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\LoadMenu\Animation\LoadMenuAnimation5.png</Source>
-      <Name>Images\Menus\LoadMenu\Animation\LoadMenuAnimation5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\LoadMenu\Animation\LoadMenuAnimation5.xnb</Output>
-      <Time>2014-03-02T01:23:13.7573844-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\LoadMenu\Buttons\Back.png</Source>
-      <Name>Images\Menus\LoadMenu\Buttons\Back</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\LoadMenu\Buttons\Back.xnb</Output>
-      <Time>2014-03-02T01:23:13.7593845-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\LoadMenu\LoadMenu.png</Source>
-      <Name>Images\Menus\LoadMenu\LoadMenu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\LoadMenu\LoadMenu.xnb</Output>
-      <Time>2014-03-02T01:23:13.7613846-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\OptionsMenu\Animation\OptionsAnimation1.png</Source>
-      <Name>Images\Menus\OptionsMenu\Animation\OptionsAnimation1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\OptionsMenu\Animation\OptionsAnimation1.xnb</Output>
-      <Time>2014-03-02T01:23:13.7643848-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\OptionsMenu\Animation\OptionsAnimation2.png</Source>
-      <Name>Images\Menus\OptionsMenu\Animation\OptionsAnimation2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\OptionsMenu\Animation\OptionsAnimation2.xnb</Output>
-      <Time>2014-03-02T01:23:13.7663849-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\OptionsMenu\Animation\OptionsAnimation3.png</Source>
-      <Name>Images\Menus\OptionsMenu\Animation\OptionsAnimation3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\OptionsMenu\Animation\OptionsAnimation3.xnb</Output>
-      <Time>2014-03-02T01:23:13.7843859-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\OptionsMenu\Animation\OptionsAnimation4.png</Source>
-      <Name>Images\Menus\OptionsMenu\Animation\OptionsAnimation4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\OptionsMenu\Animation\OptionsAnimation4.xnb</Output>
-      <Time>2014-03-02T01:23:13.786386-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\OptionsMenu\Animation\OptionsAnimation5.png</Source>
-      <Name>Images\Menus\OptionsMenu\Animation\OptionsAnimation5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\OptionsMenu\Animation\OptionsAnimation5.xnb</Output>
-      <Time>2014-03-02T01:23:13.7873861-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\OptionsMenu\Buttons\Back.png</Source>
-      <Name>Images\Menus\OptionsMenu\Buttons\Back</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\OptionsMenu\Buttons\Back.xnb</Output>
-      <Time>2014-03-02T01:23:13.7903863-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\OptionsMenu\Options.png</Source>
-      <Name>Images\Menus\OptionsMenu\Options</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\OptionsMenu\Options.xnb</Output>
-      <Time>2014-03-02T01:23:13.7913863-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Animation\StartMenuAnimation1.png</Source>
-      <Name>Images\Menus\StartMenu\Animation\StartMenuAnimation1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Animation\StartMenuAnimation1.xnb</Output>
-      <Time>2014-03-02T01:23:13.7943865-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Animation\StartMenuAnimation2.png</Source>
-      <Name>Images\Menus\StartMenu\Animation\StartMenuAnimation2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Animation\StartMenuAnimation2.xnb</Output>
-      <Time>2014-03-02T01:23:13.7953866-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Animation\StartMenuAnimation3.png</Source>
-      <Name>Images\Menus\StartMenu\Animation\StartMenuAnimation3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Animation\StartMenuAnimation3.xnb</Output>
-      <Time>2014-03-02T01:23:13.8513898-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Animation\StartMenuAnimation4.png</Source>
-      <Name>Images\Menus\StartMenu\Animation\StartMenuAnimation4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Animation\StartMenuAnimation4.xnb</Output>
-      <Time>2014-03-02T01:23:13.8543899-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Animation\StartMenuAnimation5.png</Source>
-      <Name>Images\Menus\StartMenu\Animation\StartMenuAnimation5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Animation\StartMenuAnimation5.xnb</Output>
-      <Time>2014-03-02T01:23:13.8573901-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Exit.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Exit</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Exit.xnb</Output>
-      <Time>2014-03-02T01:23:13.8613903-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\LoadGame.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\LoadGame</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\LoadGame.xnb</Output>
-      <Time>2014-03-02T01:23:13.8643905-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Options.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Options</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Options.xnb</Output>
-      <Time>2014-03-02T01:23:13.9203937-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation1.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation1.xnb</Output>
-      <Time>2014-03-02T01:23:13.8683907-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation2.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation2.xnb</Output>
-      <Time>2014-03-02T01:23:13.8703909-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation3.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation3.xnb</Output>
-      <Time>2014-03-02T01:23:13.9143934-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation4.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation4</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation4.xnb</Output>
-      <Time>2014-03-02T01:23:13.9153934-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation5.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Options\Animation\OptionsAnimation5.xnb</Output>
-      <Time>2014-03-02T01:23:13.9173935-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\Options\Button\Options.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\Options\Button\Options</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\Options\Button\Options.xnb</Output>
-      <Time>2014-03-02T01:23:13.9193937-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\Buttons\StartNewGame.png</Source>
-      <Name>Images\Menus\StartMenu\Buttons\StartNewGame</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\Buttons\StartNewGame.xnb</Output>
-      <Time>2014-03-02T01:23:13.9213938-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Menus\StartMenu\StartMenu.png</Source>
-      <Name>Images\Menus\StartMenu\StartMenu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Menus\StartMenu\StartMenu.xnb</Output>
-      <Time>2014-03-02T01:23:13.9223938-05:00</Time>
-    </Item>
-    <Item>
       <Source>Images\NPCs\TestZones\TestZone\TestNPC\LargeStationaryImage.png</Source>
       <Name>Images\NPCs\TestZones\TestZone\TestNPC\LargeStationaryImage</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestZones\TestZone\TestNPC\LargeStationaryImage.xnb</Output>
-      <Time>2014-03-02T01:23:13.925394-05:00</Time>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestZones\TestZone\TestNPC\LargeStationaryImage.xnb</Output>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\NPCs\TestZones\TestZone\TestNPC\LargeTallStationaryImage.png</Source>
@@ -286,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestZones\TestZone\TestNPC\LargeTallStationaryImage.xnb</Output>
-      <Time>2014-03-02T01:23:13.9263941-05:00</Time>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestZones\TestZone\TestNPC\LargeTallStationaryImage.xnb</Output>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\NPCs\TestZones\TestZone\TestNPC\StationaryImage.png</Source>
@@ -295,35 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestZones\TestZone\TestNPC\StationaryImage.xnb</Output>
-      <Time>2014-03-02T01:23:13.9413949-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Zones\TestCave.png</Source>
-      <Name>Images\Zones\TestCave</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestCave.xnb</Output>
-      <Time>2014-03-02T01:28:30.7415148-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Zones\TestGrassZoneFloor1.png</Source>
-      <Name>Images\Zones\TestGrassZoneFloor1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestGrassZoneFloor1.xnb</Output>
-      <Time>2014-03-03T17:00:04.9489169-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Zones\TestGrassZoneFloor2.png</Source>
-      <Name>Images\Zones\TestGrassZoneFloor2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\users\ryan\documents\visual studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestGrassZoneFloor2.xnb</Output>
-      <Time>2014-03-02T01:28:30.743515-05:00</Time>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestZones\TestZone\TestNPC\StationaryImage.xnb</Output>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Zones\TestBattleZone.png</Source>
@@ -332,133 +35,34 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestBattleZone.xnb</Output>
-      <Time>2014-03-03T17:24:06.6253761-05:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
-      <Source>Images\Enemies\Spawners\TestSpawners\testspawner.png</Source>
-      <Name>Images\Enemies\Spawners\TestSpawners\testspawner</Name>
+      <Source>Images\Zones\TestCave.png</Source>
+      <Name>Images\Zones\TestCave</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Enemies\Spawners\TestSpawners\testspawner.xnb</Output>
-      <Time>2014-03-06T17:28:42.7685626-05:00</Time>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestCave.xnb</Output>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
-      <Source>Images\Enemies\Enemies\TestGoblin\goblintest.png</Source>
-      <Name>Images\Enemies\Enemies\TestGoblin\goblintest</Name>
+      <Source>Images\Zones\TestGrassZoneFloor1.png</Source>
+      <Name>Images\Zones\TestGrassZoneFloor1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Enemies\Enemies\TestGoblin\goblintest.xnb</Output>
-      <Time>2014-03-06T20:18:19.1536185-05:00</Time>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestGrassZoneFloor1.xnb</Output>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
-      <Source>Images\Player\StationaryImages\PlayerDown.png</Source>
-      <Name>Images\Player\StationaryImages\PlayerDown</Name>
+      <Source>Images\Zones\TestGrassZoneFloor2.png</Source>
+      <Name>Images\Zones\TestGrassZoneFloor2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerDown.xnb</Output>
-      <Time>2014-03-11T00:44:59.6159359-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\StationaryImages\PlayerLeft.png</Source>
-      <Name>Images\Player\StationaryImages\PlayerLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerLeft.xnb</Output>
-      <Time>2014-03-11T00:44:59.6179361-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\StationaryImages\PlayerRight.png</Source>
-      <Name>Images\Player\StationaryImages\PlayerRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerRight.xnb</Output>
-      <Time>2014-03-11T00:44:59.6189361-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\StationaryImages\PlayerUp.png</Source>
-      <Name>Images\Player\StationaryImages\PlayerUp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerUp.xnb</Output>
-      <Time>2014-03-11T00:44:59.6199362-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkDown1.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkDown1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkDown1.xnb</Output>
-      <Time>2014-03-11T00:44:59.6219363-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkDown2.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkDown2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkDown2.xnb</Output>
-      <Time>2014-03-11T00:44:59.6229363-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkForward1.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkForward1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkForward1.xnb</Output>
-      <Time>2014-03-11T00:44:59.634937-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkForward2.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkForward2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkForward2.xnb</Output>
-      <Time>2014-03-11T00:44:59.6359371-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkLeft1.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkLeft1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkLeft1.xnb</Output>
-      <Time>2014-03-12T15:07:19.6230924-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkLeft2.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkLeft2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkLeft2.xnb</Output>
-      <Time>2014-03-11T00:44:59.6389373-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkRight1.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkRight1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkRight1.xnb</Output>
-      <Time>2014-03-12T15:07:12.517686-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Images\Player\Walking\PlayerWalkRight2.png</Source>
-      <Name>Images\Player\Walking\PlayerWalkRight2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkRight2.xnb</Output>
-      <Time>2014-03-11T00:44:59.6419374-04:00</Time>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestGrassZoneFloor2.xnb</Output>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwingSwordDown1.png</Source>
@@ -467,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwingSwordDown1.xnb</Output>
-      <Time>2014-03-13T15:10:10.1826452-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwingSwordDown2.png</Source>
@@ -476,7 +80,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwingSwordDown2.xnb</Output>
-      <Time>2014-03-13T15:10:10.1846453-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwingSwordDown3.png</Source>
@@ -485,7 +89,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwingSwordDown3.xnb</Output>
-      <Time>2014-03-13T15:10:10.1856453-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwingSwordDown4.png</Source>
@@ -494,7 +98,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwingSwordDown4.xnb</Output>
-      <Time>2014-03-13T15:10:10.1866454-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwingSwordLeft1.png</Source>
@@ -503,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwingSwordLeft1.xnb</Output>
-      <Time>2014-03-13T15:10:10.1876455-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwingSwordLeft2.png</Source>
@@ -512,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwingSwordLeft2.xnb</Output>
-      <Time>2014-03-13T15:10:10.1886455-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwingSwordLeft3.png</Source>
@@ -521,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwingSwordLeft3.xnb</Output>
-      <Time>2014-03-13T15:10:10.1896456-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwingSwordLeft4.png</Source>
@@ -530,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwingSwordLeft4.xnb</Output>
-      <Time>2014-03-13T15:10:10.1906456-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwingSwordRight1.png</Source>
@@ -539,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwingSwordRight1.xnb</Output>
-      <Time>2014-03-13T15:10:10.1916457-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwingSwordRight2.png</Source>
@@ -548,7 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwingSwordRight2.xnb</Output>
-      <Time>2014-03-13T15:10:10.1926457-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwingSwordRight3.png</Source>
@@ -557,7 +161,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwingSwordRight3.xnb</Output>
-      <Time>2014-03-13T15:10:10.1936458-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwingSwordRight4.png</Source>
@@ -566,7 +170,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwingSwordRight4.xnb</Output>
-      <Time>2014-03-13T15:10:10.1946459-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwingSwordUp1.png</Source>
@@ -575,7 +179,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwingSwordUp1.xnb</Output>
-      <Time>2014-03-13T15:10:10.1956459-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwingSwordUp2.png</Source>
@@ -584,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwingSwordUp2.xnb</Output>
-      <Time>2014-03-13T15:10:10.196646-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwingSwordUp3.png</Source>
@@ -593,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwingSwordUp3.xnb</Output>
-      <Time>2014-03-13T15:10:10.197646-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwingSwordUp4.png</Source>
@@ -602,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwingSwordUp4.xnb</Output>
-      <Time>2014-03-13T15:10:10.1986461-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwordTipDown1.png</Source>
@@ -611,7 +215,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwordTipDown1.xnb</Output>
-      <Time>2014-03-13T22:08:13.6193357-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwordTipDown2.png</Source>
@@ -620,7 +224,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwordTipDown2.xnb</Output>
-      <Time>2014-03-13T22:08:13.6163355-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwordTipDown3.png</Source>
@@ -629,7 +233,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwordTipDown3.xnb</Output>
-      <Time>2014-03-13T22:08:13.6173356-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Down\SwordTipDown4.png</Source>
@@ -638,7 +242,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Down\SwordTipDown4.xnb</Output>
-      <Time>2014-03-13T22:08:13.6183356-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwordTipLeft1.png</Source>
@@ -647,7 +251,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwordTipLeft1.xnb</Output>
-      <Time>2014-03-13T22:08:19.8546923-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwordTipLeft2.png</Source>
@@ -656,7 +260,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwordTipLeft2.xnb</Output>
-      <Time>2014-03-13T22:08:19.8566924-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwordTipLeft3.png</Source>
@@ -665,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwordTipLeft3.xnb</Output>
-      <Time>2014-03-13T22:08:19.8516922-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Left\SwordTipLeft4.png</Source>
@@ -674,7 +278,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Left\SwordTipLeft4.xnb</Output>
-      <Time>2014-03-13T22:08:19.8536923-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwordTipRight1.png</Source>
@@ -683,7 +287,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwordTipRight1.xnb</Output>
-      <Time>2014-03-13T22:08:29.8942666-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwordTipRight2.png</Source>
@@ -692,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwordTipRight2.xnb</Output>
-      <Time>2014-03-13T22:08:29.8892663-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwordTipRight3.png</Source>
@@ -701,7 +305,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwordTipRight3.xnb</Output>
-      <Time>2014-03-13T22:08:29.8912664-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Right\SwordTipRight4.png</Source>
@@ -710,7 +314,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Right\SwordTipRight4.xnb</Output>
-      <Time>2014-03-13T22:08:29.8932665-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwordTipUp1.png</Source>
@@ -719,7 +323,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwordTipUp1.xnb</Output>
-      <Time>2014-03-13T22:08:34.1355091-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwordTipUp2.png</Source>
@@ -728,7 +332,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwordTipUp2.xnb</Output>
-      <Time>2014-03-13T22:08:34.1365092-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwordTipUp3.png</Source>
@@ -737,7 +341,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwordTipUp3.xnb</Output>
-      <Time>2014-03-13T22:08:34.132509-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\SwingingSword\Up\SwordTipUp4.png</Source>
@@ -746,7 +350,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\SwingingSword\Up\SwordTipUp4.xnb</Output>
-      <Time>2014-03-13T22:08:34.133509-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
     </Item>
     <Item>
       <Source>Images\Player\PlainBorder.png</Source>
@@ -755,7 +359,997 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\PlainBorder.xnb</Output>
-      <Time>2014-03-13T22:28:37.8123555-04:00</Time>
+      <Time>2014-03-14T22:54:34-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Objects\SteppingStone\SteppingStone.png</Source>
+      <Name>Images\Objects\SteppingStone\SteppingStone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Objects\SteppingStone\SteppingStone.xnb</Output>
+      <Time>2014-03-23T17:01:32-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Zones\TestTileZone\TestTileZoneLevel2.png</Source>
+      <Name>Images\Zones\TestTileZone\TestTileZoneLevel2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestTileZone\TestTileZoneLevel2.xnb</Output>
+      <Time>2014-03-27T16:17:17.5689295-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\StationaryImages\PlayerDown.png</Source>
+      <Name>Images\Player\StationaryImages\PlayerDown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerDown.xnb</Output>
+      <Time>2014-03-28T16:46:51.2841776-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\StationaryImages\PlayerLeft.png</Source>
+      <Name>Images\Player\StationaryImages\PlayerLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerLeft.xnb</Output>
+      <Time>2014-03-28T16:46:51.2861777-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\StationaryImages\PlayerRight.png</Source>
+      <Name>Images\Player\StationaryImages\PlayerRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerRight.xnb</Output>
+      <Time>2014-03-28T16:46:51.2881778-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\StationaryImages\PlayerUp.png</Source>
+      <Name>Images\Player\StationaryImages\PlayerUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\StationaryImages\PlayerUp.xnb</Output>
+      <Time>2014-03-28T16:46:51.2901779-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkDown1.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkDown1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkDown1.xnb</Output>
+      <Time>2014-03-28T16:47:15.1415421-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkDown2.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkDown2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkDown2.xnb</Output>
+      <Time>2014-03-28T16:47:15.1475425-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkForward1.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkForward1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkForward1.xnb</Output>
+      <Time>2014-03-28T16:47:15.1485425-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkForward2.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkForward2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkForward2.xnb</Output>
+      <Time>2014-03-28T16:47:15.1335417-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkLeft1.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkLeft1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkLeft1.xnb</Output>
+      <Time>2014-03-28T16:47:15.1345417-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkLeft2.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkLeft2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkLeft2.xnb</Output>
+      <Time>2014-03-28T16:47:15.1365418-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkRight1.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkRight1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkRight1.xnb</Output>
+      <Time>2014-03-28T16:47:15.138542-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Player\Walking\PlayerWalkRight2.png</Source>
+      <Name>Images\Player\Walking\PlayerWalkRight2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Player\Walking\PlayerWalkRight2.xnb</Output>
+      <Time>2014-03-28T16:47:15.139542-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Zones\TestTileZone\TestTileZoneLevel1.png</Source>
+      <Name>Images\Zones\TestTileZone\TestTileZoneLevel1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Zones\TestTileZone\TestTileZoneLevel1.xnb</Output>
+      <Time>2014-03-28T17:05:43.7649518-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Objects\TallGrass\TallGrass.png</Source>
+      <Name>Images\Objects\TallGrass\TallGrass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Objects\TallGrass\TallGrass.xnb</Output>
+      <Time>2014-04-22T00:06:30.7786338-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Objects\TallGrass\TallGrassDepleted.png</Source>
+      <Name>Images\Objects\TallGrass\TallGrassDepleted</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Objects\TallGrass\TallGrassDepleted.xnb</Output>
+      <Time>2014-04-24T23:26:13.2707522-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Objects\TallGrass\TallGrassDepleted1.png</Source>
+      <Name>Images\Objects\TallGrass\TallGrassDepleted1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Objects\TallGrass\TallGrassDepleted1.xnb</Output>
+      <Time>2014-04-24T23:26:13.2727523-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Objects\TallGrass\TallGrassDepleted2.png</Source>
+      <Name>Images\Objects\TallGrass\TallGrassDepleted2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Objects\TallGrass\TallGrassDepleted2.xnb</Output>
+      <Time>2014-04-24T23:26:13.2737524-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain10.png</Source>
+      <Name>Images\Abilities\Drain\Drain10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain10.xnb</Output>
+      <Time>2014-04-28T17:09:10.1220723-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain11.png</Source>
+      <Name>Images\Abilities\Drain\Drain11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain11.xnb</Output>
+      <Time>2014-04-28T17:09:10.1240724-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain12.png</Source>
+      <Name>Images\Abilities\Drain\Drain12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain12.xnb</Output>
+      <Time>2014-04-28T17:09:10.1260726-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain13.png</Source>
+      <Name>Images\Abilities\Drain\Drain13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain13.xnb</Output>
+      <Time>2014-04-28T17:09:10.1280727-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain14.png</Source>
+      <Name>Images\Abilities\Drain\Drain14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain14.xnb</Output>
+      <Time>2014-04-28T17:09:10.1300728-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain15.png</Source>
+      <Name>Images\Abilities\Drain\Drain15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain15.xnb</Output>
+      <Time>2014-04-28T17:09:10.1310728-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain16.png</Source>
+      <Name>Images\Abilities\Drain\Drain16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain16.xnb</Output>
+      <Time>2014-04-28T17:09:10.133073-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain17.png</Source>
+      <Name>Images\Abilities\Drain\Drain17</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain17.xnb</Output>
+      <Time>2014-04-28T17:09:10.134073-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain18.png</Source>
+      <Name>Images\Abilities\Drain\Drain18</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain18.xnb</Output>
+      <Time>2014-04-28T17:09:10.1430735-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain19.png</Source>
+      <Name>Images\Abilities\Drain\Drain19</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain19.xnb</Output>
+      <Time>2014-04-28T17:09:10.1660748-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain20.png</Source>
+      <Name>Images\Abilities\Drain\Drain20</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain20.xnb</Output>
+      <Time>2014-04-28T17:09:10.1930764-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain21.png</Source>
+      <Name>Images\Abilities\Drain\Drain21</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain21.xnb</Output>
+      <Time>2014-04-28T17:09:10.1990767-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain22.png</Source>
+      <Name>Images\Abilities\Drain\Drain22</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain22.xnb</Output>
+      <Time>2014-04-28T17:09:10.2090773-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain23.png</Source>
+      <Name>Images\Abilities\Drain\Drain23</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain23.xnb</Output>
+      <Time>2014-04-28T17:09:10.2160777-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain24.png</Source>
+      <Name>Images\Abilities\Drain\Drain24</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain24.xnb</Output>
+      <Time>2014-04-28T17:09:10.2280784-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain25.png</Source>
+      <Name>Images\Abilities\Drain\Drain25</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain25.xnb</Output>
+      <Time>2014-04-28T17:09:10.2360788-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain26.png</Source>
+      <Name>Images\Abilities\Drain\Drain26</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain26.xnb</Output>
+      <Time>2014-04-28T17:09:10.2450794-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain27.png</Source>
+      <Name>Images\Abilities\Drain\Drain27</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain27.xnb</Output>
+      <Time>2014-04-28T17:09:10.2600802-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain28.png</Source>
+      <Name>Images\Abilities\Drain\Drain28</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain28.xnb</Output>
+      <Time>2014-04-28T17:09:10.273081-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain29.png</Source>
+      <Name>Images\Abilities\Drain\Drain29</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain29.xnb</Output>
+      <Time>2014-04-28T17:09:10.2830815-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain30.png</Source>
+      <Name>Images\Abilities\Drain\Drain30</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain30.xnb</Output>
+      <Time>2014-04-28T17:09:10.2930821-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain31.png</Source>
+      <Name>Images\Abilities\Drain\Drain31</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain31.xnb</Output>
+      <Time>2014-04-28T17:09:10.3070829-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain32.png</Source>
+      <Name>Images\Abilities\Drain\Drain32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain32.xnb</Output>
+      <Time>2014-04-28T17:09:10.3220838-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain33.png</Source>
+      <Name>Images\Abilities\Drain\Drain33</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain33.xnb</Output>
+      <Time>2014-04-28T17:09:10.3410849-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain34.png</Source>
+      <Name>Images\Abilities\Drain\Drain34</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain34.xnb</Output>
+      <Time>2014-04-28T17:09:10.3540856-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain35.png</Source>
+      <Name>Images\Abilities\Drain\Drain35</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain35.xnb</Output>
+      <Time>2014-04-28T17:09:10.4190893-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain36.png</Source>
+      <Name>Images\Abilities\Drain\Drain36</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain36.xnb</Output>
+      <Time>2014-04-28T17:09:10.4270898-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain37.png</Source>
+      <Name>Images\Abilities\Drain\Drain37</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain37.xnb</Output>
+      <Time>2014-04-28T17:09:10.4360903-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain38.png</Source>
+      <Name>Images\Abilities\Drain\Drain38</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain38.xnb</Output>
+      <Time>2014-04-28T17:09:10.4420906-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain39.png</Source>
+      <Name>Images\Abilities\Drain\Drain39</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain39.xnb</Output>
+      <Time>2014-04-28T17:09:10.449091-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain40.png</Source>
+      <Name>Images\Abilities\Drain\Drain40</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain40.xnb</Output>
+      <Time>2014-04-28T17:09:10.4520912-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain41.png</Source>
+      <Name>Images\Abilities\Drain\Drain41</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain41.xnb</Output>
+      <Time>2014-04-28T17:09:10.4570915-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain42.png</Source>
+      <Name>Images\Abilities\Drain\Drain42</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain42.xnb</Output>
+      <Time>2014-04-28T17:09:10.4670921-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain43.png</Source>
+      <Name>Images\Abilities\Drain\Drain43</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain43.xnb</Output>
+      <Time>2014-04-28T17:09:10.4690922-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain44.png</Source>
+      <Name>Images\Abilities\Drain\Drain44</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain44.xnb</Output>
+      <Time>2014-04-28T17:09:10.4760926-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain45.png</Source>
+      <Name>Images\Abilities\Drain\Drain45</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain45.xnb</Output>
+      <Time>2014-04-28T17:09:10.4850931-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain46.png</Source>
+      <Name>Images\Abilities\Drain\Drain46</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain46.xnb</Output>
+      <Time>2014-04-28T17:09:10.4970938-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain47.png</Source>
+      <Name>Images\Abilities\Drain\Drain47</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain47.xnb</Output>
+      <Time>2014-04-28T17:09:10.5000939-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain48.png</Source>
+      <Name>Images\Abilities\Drain\Drain48</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain48.xnb</Output>
+      <Time>2014-04-28T17:09:10.5020941-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain49.png</Source>
+      <Name>Images\Abilities\Drain\Drain49</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain49.xnb</Output>
+      <Time>2014-04-28T17:09:10.5030941-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain50.png</Source>
+      <Name>Images\Abilities\Drain\Drain50</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain50.xnb</Output>
+      <Time>2014-04-28T17:09:10.5140947-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain51.png</Source>
+      <Name>Images\Abilities\Drain\Drain51</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain51.xnb</Output>
+      <Time>2014-04-28T17:09:10.5300957-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain52.png</Source>
+      <Name>Images\Abilities\Drain\Drain52</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain52.xnb</Output>
+      <Time>2014-04-28T17:09:10.5470966-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain53.png</Source>
+      <Name>Images\Abilities\Drain\Drain53</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain53.xnb</Output>
+      <Time>2014-04-28T17:09:10.0900705-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain54.png</Source>
+      <Name>Images\Abilities\Drain\Drain54</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain54.xnb</Output>
+      <Time>2014-04-28T17:09:10.0910706-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain55.png</Source>
+      <Name>Images\Abilities\Drain\Drain55</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain55.xnb</Output>
+      <Time>2014-04-28T17:09:10.0930707-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain56.png</Source>
+      <Name>Images\Abilities\Drain\Drain56</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain56.xnb</Output>
+      <Time>2014-04-28T17:09:10.0940707-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain57.png</Source>
+      <Name>Images\Abilities\Drain\Drain57</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain57.xnb</Output>
+      <Time>2014-04-28T17:09:10.0960708-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain58.png</Source>
+      <Name>Images\Abilities\Drain\Drain58</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain58.xnb</Output>
+      <Time>2014-04-28T17:09:10.1070715-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\Drain59.png</Source>
+      <Name>Images\Abilities\Drain\Drain59</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\Drain59.xnb</Output>
+      <Time>2014-04-28T17:09:10.1180721-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Abilities\Drain\DrainMax.png</Source>
+      <Name>Images\Abilities\Drain\DrainMax</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Abilities\Drain\DrainMax.xnb</Output>
+      <Time>2014-04-28T17:09:10.1200722-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\0.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\0.xnb</Output>
+      <Time>2014-05-06T21:23:34.9403526-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\1.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\1.xnb</Output>
+      <Time>2014-05-06T21:23:34.9413526-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\2.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\2.xnb</Output>
+      <Time>2014-05-06T21:23:34.9393525-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\3.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\3.xnb</Output>
+      <Time>2014-05-06T21:23:34.9373524-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\4.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\4.xnb</Output>
+      <Time>2014-05-06T21:23:34.9363523-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\5.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\5.xnb</Output>
+      <Time>2014-05-06T21:23:34.9353523-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\6.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\6.xnb</Output>
+      <Time>2014-05-06T21:23:34.9453529-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\7.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\7.xnb</Output>
+      <Time>2014-05-06T21:23:34.9443528-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\8.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\8.xnb</Output>
+      <Time>2014-05-06T21:23:34.9433527-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\SmallBlack\9.png</Source>
+      <Name>Images\Characters\Numbers\SmallBlack\9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\SmallBlack\9.xnb</Output>
+      <Time>2014-05-06T21:23:34.9423527-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\0black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\0black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\0black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5837897-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\1black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\1black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\1black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5817896-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\2black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\2black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\2black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5807896-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\3black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\3black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\3black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5857899-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\4black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\4black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\4black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5797895-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\5black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\5black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\5black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5787895-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\6black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\6black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\6black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5787895-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\7black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\7black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\7black.xnb</Output>
+      <Time>2014-05-06T21:23:42.58879-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\8black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\8black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\8black.xnb</Output>
+      <Time>2014-05-06T21:23:42.58779-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Characters\Numbers\MediumBlack\9black.png</Source>
+      <Name>Images\Characters\Numbers\MediumBlack\9black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Characters\Numbers\MediumBlack\9black.xnb</Output>
+      <Time>2014-05-06T21:23:42.5867899-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\UI\UIBoxes.png</Source>
+      <Name>Images\UI\UIBoxes</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\UI\UIBoxes.xnb</Output>
+      <Time>2014-05-07T17:19:14.0695961-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\NPCs\TestNPCs\Test\StationaryLeft\StationaryLeft.png</Source>
+      <Name>Images\NPCs\TestNPCs\Test\StationaryLeft\StationaryLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestNPCs\Test\StationaryLeft\StationaryLeft.xnb</Output>
+      <Time>2014-05-14T16:18:39.8470283-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\NPCs\TestNPCs\Test\StationaryRight\StationaryRight.png</Source>
+      <Name>Images\NPCs\TestNPCs\Test\StationaryRight\StationaryRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestNPCs\Test\StationaryRight\StationaryRight.xnb</Output>
+      <Time>2014-05-14T16:18:43.6652467-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\NPCs\TestNPCs\Test\StationaryDown\StationaryDown.png</Source>
+      <Name>Images\NPCs\TestNPCs\Test\StationaryDown\StationaryDown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestNPCs\Test\StationaryDown\StationaryDown.xnb</Output>
+      <Time>2014-05-14T16:18:48.040497-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\NPCs\TestNPCs\Test\StationaryUp\StationaryUp.png</Source>
+      <Name>Images\NPCs\TestNPCs\Test\StationaryUp\StationaryUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\NPCs\TestNPCs\Test\StationaryUp\StationaryUp.xnb</Output>
+      <Time>2014-05-14T16:18:57.8110558-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\UI\Activate.png</Source>
+      <Name>Images\UI\Activate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\UI\Activate.xnb</Output>
+      <Time>2014-05-15T17:24:16.143969-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\UI\Enter.png</Source>
+      <Name>Images\UI\Enter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\UI\Enter.xnb</Output>
+      <Time>2014-05-15T17:24:16.1479692-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\UI\Inspect.png</Source>
+      <Name>Images\UI\Inspect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\UI\Inspect.xnb</Output>
+      <Time>2014-05-15T17:24:16.144969-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\UI\Open.png</Source>
+      <Name>Images\UI\Open</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\UI\Open.xnb</Output>
+      <Time>2014-05-15T17:24:16.1469691-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\UI\Talk.png</Source>
+      <Name>Images\UI\Talk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\UI\Talk.xnb</Output>
+      <Time>2014-05-15T17:24:16.1489693-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\UI\None.png</Source>
+      <Name>Images\UI\None</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\UI\None.xnb</Output>
+      <Time>2014-05-15T22:40:09.588044-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Inventory\InventoryPages\Page1Highlight.png</Source>
+      <Name>Images\Inventory\InventoryPages\Page1Highlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Inventory\InventoryPages\Page1Highlight.xnb</Output>
+      <Time>2014-05-18T13:35:26.5046302-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Inventory\InventoryPages\Page2Highlight.png</Source>
+      <Name>Images\Inventory\InventoryPages\Page2Highlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Inventory\InventoryPages\Page2Highlight.xnb</Output>
+      <Time>2014-05-18T13:35:26.4966297-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Inventory\InventoryPages\Page3Highlight.png</Source>
+      <Name>Images\Inventory\InventoryPages\Page3Highlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Inventory\InventoryPages\Page3Highlight.xnb</Output>
+      <Time>2014-05-18T13:35:26.4996299-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Inventory\InventoryPages\Page4Highlight.png</Source>
+      <Name>Images\Inventory\InventoryPages\Page4Highlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Inventory\InventoryPages\Page4Highlight.xnb</Output>
+      <Time>2014-05-18T13:35:26.50163-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Chat\ChatBox.png</Source>
+      <Name>Images\Chat\ChatBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Chat\ChatBox.xnb</Output>
+      <Time>2014-05-18T22:10:34.8014836-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\ChatFont.spritefont</Source>
+      <Name>Fonts\ChatFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Fonts\ChatFont.xnb</Output>
+      <Time>2014-05-18T22:25:38.4411688-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Chat\BigChatBox.png</Source>
+      <Name>Images\Chat\BigChatBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Chat\BigChatBox.xnb</Output>
+      <Time>2014-05-21T15:23:20.1622942-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Chat\PointerArrow.png</Source>
+      <Name>Images\Chat\PointerArrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Chat\PointerArrow.xnb</Output>
+      <Time>2014-05-21T17:31:14.0542157-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Images\Chat\OptionBox.png</Source>
+      <Name>Images\Chat\OptionBox</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ryan\Documents\Visual Studio 2012\Projects\FunGame\FunGame\FunGame\bin\x86\Debug\Content\Images\Chat\OptionBox.xnb</Output>
+      <Time>2014-05-21T17:31:19.4715255-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

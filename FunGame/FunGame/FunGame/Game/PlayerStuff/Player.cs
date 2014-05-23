@@ -17,6 +17,16 @@ namespace FunGame.Game.PlayerStuff
         public readonly int RIGHT = 2;
         public readonly int LEFT = 3;
 
+        private readonly int FIRE = 0;
+        private readonly int WATER = 1;
+        private readonly int NATURE = 2;
+
+        private int waterEnergy;
+        private int fireEnergy;
+        private int natureEnergy;
+
+        private int currentElement;
+
         private Vector2 globalLocation;
         private Vector2 drawLocation;
 
@@ -28,39 +38,112 @@ namespace FunGame.Game.PlayerStuff
         private int moveSpeed;
         private int facingDirection;
 
-        private bool isSwordOut;
         private int health;
-        private AttackRegions attackRegions;
 
         private List<Texture2D> activeAnimation;
-        private List<Texture2D> activeBorderAnimation;
-        private AnimationPriorities animationPriorities;
-        private int currentAnimationPriority;
+        private List<Texture2D> abilityAnimation;
+        private List<Vector2> abilityAnimationOffset;
         private int currentAnimationIndex;
+        private int abilityAnimationIndex;
         private bool animationFinished;
+
+        private bool abilityAnimationFinished;
+        private bool abilityAnimationPlaying;
+
+        private List<Vector2> jumpOffset;
+        private List<Vector2> jumpUpOffset;
+        private List<Vector2> jumpDownOffset;
+        private List<Vector2> jumpRightOffset;
+        private List<Vector2> jumpLeftOffset;
+
+        private CharacterStats stats;
 
         public Player()
         {
+            stats = new CharacterStats();
             globalLocation = new Vector2(0, 0);
             drawLocation = new Vector2(0, 0);
 
-            size = new Vector2(20, 20);
-            drawingSize = new Vector2(20, 30);
-            centerFromGlobal = new Vector2(10, 5);
+            size = new Vector2(30, 30);
+            drawingSize = new Vector2(30, 45);
+            centerFromGlobal = new Vector2(15, 8);
 
             currentZoneLevel = 0;
             facingDirection = 0;
             moveSpeed = 4;
-            isSwordOut = false;
             health = 100;
-            attackRegions = new AttackRegions();
+            fireEnergy = 100;
+            waterEnergy = 100;
+            natureEnergy = 100;
+            currentElement = 0; // might want to set these from save file
 
             activeAnimation = new List<Texture2D>();
-            activeBorderAnimation = new List<Texture2D>();
-            animationPriorities = new AnimationPriorities();
-            currentAnimationPriority = -1;
+            abilityAnimation = new List<Texture2D>();
             currentAnimationIndex = 0;
+            abilityAnimationIndex = 0;
             animationFinished = true;
+            abilityAnimationFinished = false;
+            abilityAnimationPlaying = false;
+
+            jumpOffset = new List<Vector2>();
+            jumpUpOffset = new List<Vector2>();
+            jumpDownOffset = new List<Vector2>();
+            jumpRightOffset = new List<Vector2>();
+            jumpLeftOffset = new List<Vector2>();
+
+            fillJumpOffsets();
+        }
+
+        private void fillJumpOffsets()
+        {
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+            jumpUpOffset.Add(new Vector2(0, -6));
+
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+            jumpDownOffset.Add(new Vector2(0, 6));
+
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+            jumpRightOffset.Add(new Vector2(6, 0));
+
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+            jumpLeftOffset.Add(new Vector2(-6, 0));
+        }
+
+        public List<Vector2> getJumpOffset()
+        {
+            return jumpOffset;
         }
 
         public Vector2 getGlobalLocation()
@@ -158,28 +241,6 @@ namespace FunGame.Game.PlayerStuff
             facingDirection = direction;
         }
 
-        public AttackRegions getAttackRegions()
-        {
-            return attackRegions;
-        }
-
-        public void swordOut()
-        {
-            isSwordOut = true;
-            moveSpeed = 2;
-        }
-
-        public void swordIn()
-        {
-            isSwordOut = false;
-            moveSpeed = 4;
-        }
-
-        public bool getSwordOut()
-        {
-            return isSwordOut;
-        }
-
         public int getHealth()
         {
             return health;
@@ -205,47 +266,21 @@ namespace FunGame.Game.PlayerStuff
         {
             return activeAnimation;
         }
-
-        public List<Texture2D> getActiveBorderAnimation()
+        
+        public void setNewAnimation(List<Texture2D> animation)
         {
-            return activeBorderAnimation;
-        }
-
-        public int getCurrentAnimationPriority()
-        {
-            return currentAnimationPriority;
-        }
-
-        public void setNewBorderAnimation(List<Texture2D> animation, string name)
-        {
-            activeBorderAnimation = animation;
-        }
-
-        public void setNewAnimation(List<Texture2D> animation, string name)
-        {
-            //Console.WriteLine("new animation");
             animationFinished = false;
             activeAnimation = animation;
             currentAnimationIndex = 0;
-            currentAnimationPriority = animationPriorities.getPriority(name);
         }
 
         public void advanceCurrentAnimation()
         {
-            if (currentAnimationIndex < activeAnimation.Count - 1)
+            currentAnimationIndex++;
+            if (currentAnimationIndex == activeAnimation.Count - 1)
             {
-                currentAnimationIndex++;
-            }
-            else
-            {
-                currentAnimationIndex = 0;
                 animationFinished = true;
             }
-        }
-
-        public void finishAnimation()
-        {
-            currentAnimationPriority = -1;
         }
 
         public int getAnimationIndex()
@@ -256,6 +291,150 @@ namespace FunGame.Game.PlayerStuff
         public bool isAnimationFinished()
         {
             return animationFinished;
+        }
+
+        public List<Texture2D> getAbilityAnimation()
+        {
+            return abilityAnimation;
+        }
+
+        public List<Vector2> getAbilityAnimationOffset()
+        {
+            return abilityAnimationOffset;
+        }
+
+        public void setNewAbilityAnimation(List<Texture2D> animation, List<Vector2> offsets)
+        {
+            abilityAnimationFinished = false;
+            abilityAnimationPlaying = true;
+            abilityAnimation = animation;
+            abilityAnimationOffset = offsets;
+            abilityAnimationIndex = 0;
+        }
+
+        public void advanceAbilityAnimation()
+        {
+            abilityAnimationIndex++;
+            if (abilityAnimationIndex == abilityAnimation.Count - 1)
+            {
+                abilityAnimationFinished = true;
+            }
+        }
+
+        public int getAbilityAnimationIndex()
+        {
+            return abilityAnimationIndex;
+        }
+
+        public bool isAbilityAnimationFinished()
+        {
+            return abilityAnimationFinished;
+        }
+
+        public bool isAbilityAnimationPlaying()
+        {
+            return abilityAnimationPlaying;
+        }
+
+        public void finishAbilityAnimation()
+        {
+            abilityAnimationPlaying = false;
+        }
+
+        public void jump(int direction)
+        {
+            if (direction == 0)
+            {
+                jumpOffset = jumpUpOffset;
+            }
+            else if (direction == 1)
+            {
+                jumpOffset = jumpDownOffset;
+            }
+            else if (direction == 2)
+            {
+                jumpOffset = jumpRightOffset;
+            }
+            else if (direction == 3)
+            {
+                jumpOffset = jumpLeftOffset;
+            }
+        }
+
+        public void drainEnergy(int type, int amount)
+        {
+            stats.restoreEnergy(type, amount);
+        }
+
+        public void feedEnergy(int type, int amount)
+        {
+            if (type == FIRE)
+            {
+                fireEnergy -= amount;
+                if (fireEnergy < 0)
+                {
+                    fireEnergy = 0;
+                }
+            }
+            else if (type == WATER)
+            {
+                waterEnergy -= amount;
+                if (waterEnergy < 0)
+                {
+                    waterEnergy = 0;
+                }
+            }
+            else if (type == NATURE)
+            {
+                natureEnergy -= amount;
+                if (natureEnergy < 0)
+                {
+                    natureEnergy = 0;
+                }
+            }
+        }
+
+        public void releaseEnergy()
+        {
+        }
+
+        public void cycleLeft()
+        {
+            if (currentElement == 0)
+            {
+                currentElement = 2;
+            }
+            else
+            {
+                currentElement--;
+            }
+        }
+
+        public void cycleRight()
+        {
+            if (currentElement == 2)
+            {
+                currentElement = 0;
+            }
+            else
+            {
+                currentElement++;
+            }
+        }
+
+        public int getCurrentElement()
+        {
+            return currentElement;
+        }
+
+        public void setCurrentElement(int element)
+        {
+            currentElement = element;
+        }
+
+        public CharacterStats getStats()
+        {
+            return stats;
         }
 
     }

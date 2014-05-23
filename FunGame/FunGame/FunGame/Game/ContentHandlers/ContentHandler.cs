@@ -13,46 +13,37 @@ namespace FunGame.Game.ContentHandlers
         private ContentManager content;
 
         private PlayerContentHandler playerContentHandler;
-
-        private List<Texture2D> swordImages;
-        private List<Texture2D> testZoneImages; // make a zone content handler
-        private List<Texture2D> testCaveImages;
-        private List<Texture2D> testBattleZoneImages;
-        private List<Texture2D> testNPCImagesA;
-        private List<Texture2D> testNPCImagesB;
-        private List<Texture2D> testNPCImagesC;
-        private List<Texture2D> testSpawnerImages;
-        private List<Texture2D> testGoblinImages;
-
-        private Dictionary<int, List<Texture2D>> zoneImages;
-        private Dictionary<string, List<Texture2D>> npcImages;
-        private Dictionary<string, List<Texture2D>> spawnerImages;
+        private ObjectContentHandler objectContentHandler;
+        private AbilityContentHandler abilityContentHandler;
+        private CharacterContentHandler characterContentHandler;
+        private MenuAndUIContentHandler menuUIContentHandler;
+        private NPCContentHandler npcContentHandler;
+        private ZoneContentHandler zoneContentHandler;
+        private ChatContentHandler chatContentHandler;
 
         public ContentHandler(ContentManager content)
         {
             this.content = content;
             playerContentHandler = new PlayerContentHandler(content);
-            swordImages = new List<Texture2D>();
-            testZoneImages = new List<Texture2D>();
-            testCaveImages = new List<Texture2D>();
-            testBattleZoneImages = new List<Texture2D>();
-            testNPCImagesA = new List<Texture2D>();
-            testNPCImagesB = new List<Texture2D>();
-            testNPCImagesC = new List<Texture2D>();
-            testSpawnerImages = new List<Texture2D>();
-            testGoblinImages = new List<Texture2D>();
-
-            zoneImages = new Dictionary<int, List<Texture2D>>();
-            npcImages = new Dictionary<string, List<Texture2D>>();
-            spawnerImages = new Dictionary<string, List<Texture2D>>();
+            objectContentHandler = new ObjectContentHandler(content);
+            abilityContentHandler = new AbilityContentHandler(content);
+            characterContentHandler = new CharacterContentHandler(content);
+            menuUIContentHandler = new MenuAndUIContentHandler(content);
+            npcContentHandler = new NPCContentHandler(content);
+            zoneContentHandler = new ZoneContentHandler(content);
+            chatContentHandler = new ChatContentHandler(content);
         }
 
         public void loadContent()
         {
             loadPlayerContent();
+            loadObjectContent();
             loadZoneContent();
             loadNPCContent();
-            loadEnemyContent();
+            loadAbilityContent();
+            loadCharacterContent();
+            loadUIContent();
+            loadChatContent();
         }
 
         private void loadPlayerContent()
@@ -60,53 +51,44 @@ namespace FunGame.Game.ContentHandlers
             playerContentHandler.loadContent();
         }
 
+        private void loadObjectContent()
+        {
+            objectContentHandler.loadContent();
+        }
+
+        private void loadAbilityContent()
+        {
+            abilityContentHandler.loadContent();
+        }
+
+        private void loadCharacterContent()
+        {
+            characterContentHandler.loadContent();
+        }
+
+        private void loadUIContent()
+        {
+            menuUIContentHandler.loadContent();
+        }
+
         private void loadZoneContent()
         {
-            testZoneImages.Add(content.Load<Texture2D>("Images/Zones/TestGrassZoneFloor1"));
-            testZoneImages.Add(content.Load<Texture2D>("Images/Zones/TestGrassZoneFloor2"));
-            testCaveImages.Add(content.Load<Texture2D>("Images/Zones/TestCave"));
-            testBattleZoneImages.Add(content.Load<Texture2D>("Images/Zones/TestBattleZone"));
-
-            zoneImages.Add(-1, testZoneImages);
-            zoneImages.Add(-2, testCaveImages);
-            zoneImages.Add(-3, testBattleZoneImages);
-
-            testSpawnerImages.Add(content.Load<Texture2D>("Images/Enemies/Spawners/TestSpawners/testspawner"));
-
-            spawnerImages.Add("Test", testSpawnerImages);
+            zoneContentHandler.loadContent();
         }
 
         private void loadNPCContent()
         {
-            testNPCImagesA.Add(content.Load<Texture2D>("Images/NPCs/TestZones/TestZone/TestNPC/StationaryImage"));
-            npcImages.Add("A", testNPCImagesA);
-
-            testNPCImagesB.Add(content.Load<Texture2D>("Images/NPCs/TestZones/TestZone/TestNPC/LargeStationaryImage"));
-            npcImages.Add("B", testNPCImagesB);
-
-            testNPCImagesC.Add(content.Load<Texture2D>("Images/NPCs/TestZones/TestZone/TestNPC/LargeTallStationaryImage"));
-            npcImages.Add("C", testNPCImagesC);
-
+            npcContentHandler.loadContent();
         }
 
-        private void loadEnemyContent()
+        private void loadChatContent()
         {
-            testGoblinImages.Add(content.Load<Texture2D>("Images/Enemies/Enemies/TestGoblin/goblintest"));
+            chatContentHandler.loadContent();
         }
 
-        public List<Texture2D> getPlayerImages()
+        public AbilityContentHandler getAbilityContentHandler()
         {
-            return playerContentHandler.getStationaryImages();
-        }
-
-        public List<Texture2D> getSwordImages()
-        {
-            return swordImages;
-        }
-
-        public List<Texture2D> getGoblinImages()
-        {
-            return testGoblinImages;
+            return abilityContentHandler;
         }
 
         public PlayerContentHandler getPlayerContentHandler()
@@ -114,20 +96,34 @@ namespace FunGame.Game.ContentHandlers
             return playerContentHandler;
         }
 
-        public Dictionary<int, List<Texture2D>> getZoneImages()
+        public ObjectContentHandler getObjectContentHandler()
         {
-            return zoneImages;
+            return objectContentHandler;
         }
 
-        public Dictionary<string, List<Texture2D>> getNPCImages()
+        public CharacterContentHandler getCharacterContentHandler()
         {
-            return npcImages;
+            return characterContentHandler;
         }
 
-        public Dictionary<string, List<Texture2D>> getSpawnerImages()
+        public MenuAndUIContentHandler getMenuUIContentHandler()
         {
-            return spawnerImages;
+            return menuUIContentHandler;
         }
 
+        public NPCContentHandler getNPCContentHandler()
+        {
+            return npcContentHandler;
+        }
+
+        public ZoneContentHandler getZoneContentHandler()
+        {
+            return zoneContentHandler;
+        }
+
+        public ChatContentHandler getChatContentHandler()
+        {
+            return chatContentHandler;
+        }
     }
 }
